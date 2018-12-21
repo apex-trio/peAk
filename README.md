@@ -52,6 +52,8 @@ Please comment / edit regarding stretch goal ideas, other APIs to use, and ideas
 #### Stretch Goal:
 - As a user, I want to be able to add friends to the app so that I can connect with people whom I’ve met at various meetups. <br/>
 
+- As a dev, I want to give the group creators admin privileges. This will enable them to remove anyone from the group who is abusing the site. <br/>
 
+- As a dev, I want to drop a pin on the Google Maps iFrame to provide a visual representation of which groups are snowboarding on specific passes. 
 
 <!-- [:top: Contents](#contents) -->
