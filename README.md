@@ -4,7 +4,7 @@
 
 ```
 Code Fellows; seattle-ja-401d2
-Darrin Howell, Nick Crain, Hiwot Nega, Jason Burns
+Darrin Howell, Nick Crain, Jason Burns
 ```
 
 ### Target Demographic:
