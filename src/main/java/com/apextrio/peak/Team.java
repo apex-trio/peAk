@@ -12,14 +12,59 @@ public class Team {
     private String name;
     private String difficulty;
     private int capacity;
-    private Date date;
+    private Date dateCreated;
+    private Date dateGoing;
     @ManyToOne
-    private Resort resort;
+    public Resort resort;
     @ManyToMany
     @JoinTable(
             name = "team_members",
             joinColumns = {@JoinColumn(name = "team_id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
     )
-    private Set<AppUser> users;
+    public Set<AppUser> users;
+
+    public long getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDifficulty() {
+        return this.difficulty;
+    }
+
+    public int getCapacity() {
+        return this.capacity;
+    }
+
+    public Date getDateCreated() {
+        return this.dateCreated;
+    }
+
+    public Date getDateGoing() {
+        return this.dateGoing;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public void setDateGoing() {
+        this.dateGoing = dateGoing;
+    }
 }
