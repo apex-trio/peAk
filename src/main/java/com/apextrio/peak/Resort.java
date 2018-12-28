@@ -13,5 +13,41 @@ public class Resort {
     private float longitude;
     private String website;
     @OneToMany(mappedBy = "resort")
-    private List<Team> groups;
+    public List<Team> groups;
+
+    public long getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public float getLatitude() {
+        return this.latitude;
+    }
+
+    public float getLongitude() {
+        return this.longitude;
+    }
+
+    public String getWebsite() {
+        return this.website;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
 }
