@@ -15,7 +15,7 @@ public class AppUser {
     private String firstName;
     private String lastName;
     @ManyToMany(mappedBy = "users")
-    public Set<Team> groups = new HashSet<>();
+    public Set<Team> teams;
 
     public long getId() {
         return this.id;
@@ -59,5 +59,9 @@ public class AppUser {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String toString() {
+        return this.username;
     }
 }
