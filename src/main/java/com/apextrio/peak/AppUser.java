@@ -1,11 +1,15 @@
 package com.apextrio.peak;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class AppUser {
+public class AppUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -17,12 +21,51 @@ public class AppUser {
     @ManyToMany(mappedBy = "users")
     public Set<Team> groups = new HashSet<>();
 
+    public AppUser(String username, String password, String bio, String firstName, String lastName) {
+        this.username = username;
+        this.password = password;
+        this.bio = bio;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public AppUser() {}
+
+    public String toString() {
+        return this.username + " -(username)";
+    }
+
     public long getId() {
         return this.id;
     }
 
     public String getUsername() {
         return this.username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     public String getPassword() {

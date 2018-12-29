@@ -64,7 +64,7 @@ public class Team {
         this.dateCreated = dateCreated;
     }
 
-    public void setDateGoing() {
+    public void setDateGoing(Date dateGoing) {
         this.dateGoing = dateGoing;
     }
 }
