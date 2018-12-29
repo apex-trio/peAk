@@ -2,6 +2,7 @@ package com.apextrio.peak;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -66,5 +67,9 @@ public class Team {
 
     public void setDateGoing(Date dateGoing) {
         this.dateGoing = dateGoing;
+    }
+
+    public String toString() {
+        return this.name;
     }
 }

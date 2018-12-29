@@ -19,7 +19,7 @@ public class AppUser implements UserDetails {
     private String firstName;
     private String lastName;
     @ManyToMany(mappedBy = "users")
-    public Set<Team> groups = new HashSet<>();
+    public Set<Team> teams;
 
     public AppUser(String username, String password, String bio, String firstName, String lastName) {
         this.username = username;
@@ -103,4 +103,5 @@ public class AppUser implements UserDetails {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    
 }
