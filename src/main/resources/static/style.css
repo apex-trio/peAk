@@ -16,3 +16,34 @@ html {
 body {
    background-color: red;
 }
+
+i {
+    background: transparent;
+    color: white;
+}
+
+/*////////// MOBILE BY DEFAULT^v //////////*/
+body {
+    box-sizing: border-box;
+    font-size: .9em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+/*////////// half/vert tablet //////////*/
+@media screen and (min-width: 500px) {
+
+    body {
+        width: 80vw;
+    }
+
+}
+
+/*////////// fullscreen //////////*/
+@media screen and (min-width: 1100px) {
+
+    body {
+        width: 60vw;
+    }
+
+}
