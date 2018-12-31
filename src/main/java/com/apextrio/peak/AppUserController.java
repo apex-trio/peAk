@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.util.ArrayList;
 
 @Controller
@@ -75,5 +77,13 @@ public class AppUserController {
         appUserRepo.save(newUser);
         return new RedirectView("/");
     }
+
+//    @RequestMapping(value = "/storeImages", method = RequestMethod.POST)
+//    public RedirectView saveImage(@RequestParam File pic){
+//
+//        BufferedReader
+//
+//        return new RedirectView("/");
+//    }
 
 }
