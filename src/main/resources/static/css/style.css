@@ -7,11 +7,15 @@ html{
 }
 
 body {
+
+    background: url("/img/sti-H.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     box-sizing: border-box;
     font-size: .9em;
-    /*margin-left: auto;
-    margin-right: auto;*/
-  }
+    }
 
 header {
     width: 100vw;
@@ -21,11 +25,19 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-}
+    }
+
+#logo_frame {
+    display: inline-block;
+    background-image: url("/img/peaklogo500w.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    }
 
 h1 {
     font-family: 'Viga', sans-serif;
     display: inline-block;
+    color: white;
 }
 
 nav{
@@ -34,6 +46,11 @@ nav{
 
 nav > div {
     display: inline-block;
+}
+
+nav > div > a {
+     color: white;
+     text-decoration: none;
 }
 
 i {
@@ -52,9 +69,6 @@ footer {
     }
 
     body {
-        background-image: url("/img/sti-H.jpg");
-        background-position: top center;
-        background-size: auto 100vh;
         position: absolute;
         top: 3vh;
         color: black;
@@ -63,15 +77,6 @@ footer {
     header {
         height: 3vh;
         background-color: #1a4871;
-        color: white;
-    }
-
-    nav > div > a {
-        color: white;
-        text-decoration: none;
-    }
-
-    h1{
         color: white;
     }
 
@@ -86,11 +91,8 @@ footer {
     #logo_frame {
         height: 3vh;
         width: 3vh;
-        display: inline-block;
-        background-image: url("/img/peaklogo500w.png");
         background-size: 2.5vh 2.5vh;
-        background-repeat: no-repeat;
-        background-position: center;
+
     }
 
 
@@ -108,23 +110,14 @@ footer {
         color: black;
     }
 
-    nav > div > a {
-        color: black;
-        text-decoration: none;
-    }
-
     h1{
-        color: black;
+
         font-size: 3.5vh;
     }
 
     body{
 
-        background: url("/img/sti-H.jpg") no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+
 
         position: absolute;
         top: 5vh;
@@ -135,10 +128,7 @@ footer {
     #logo_frame {
         height: 5vh;
         width: 5vh;
-        display: inline-block;
-        background-image: url("/img/peaklogo500b.png");
         background-size: 4.5vh 4.5vh;
-        background-repeat: no-repeat;
-        background-position: center;
+
     }
 }
