@@ -11,21 +11,18 @@ body {
 
 header {
     height: 3vh;
-    background-color: black;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 h1 {
     font-family: 'Viga', sans-serif;
     display: inline-block;
-    margin-left: 3vh;
-}
-
-#logo_frame {
-    height: 3vh;
-    width: 3vh;
-    /* border-style: solid;
-    border-color: red;
-    border-width: 2px; */
 }
 
 i {
@@ -36,50 +33,77 @@ i {
 @media screen and (orientation:portrait) {
 
     * {
-        color: white;
-    }
 
-    header {
-        /*height: 3vh;*/
-        background-color: black;
-    }
-
-    #logo_frame {
-        height: 100%;
-        display: inline-block;
-        background-image: url("/img/peaklogo500w.png");
-        background-size: 3vh 3vh;
     }
 
     body {
         background-image: url("/img/sti-H.jpg");
         background-position: top center;
         background-size: auto 100vh;
-    }
-}
-@media screen and (orientation: landscape) {
-
-    * {
+        position: absolute;
+        top: 3vh;
         color: black;
     }
 
     header {
-        /*height: 3vh;*/
+        height: 3vh;
+        background-color: black;
+        color: white;
+    }
+
+    body{
+        top: 3vh;
+    }
+
+    h1{
+        font-size: 3vh;
+    }
+
+    #logo_frame {
+        height: 2.5vh;
+        width: 2.5vh;
+        display: inline-block;
+        background-image: url("/img/peaklogo500w.png");
+        background-size: 2.5vh 2.5vh;
+        background-repeat: no-repeat;
+    }
+
+
+}
+@media screen and (orientation: landscape) {
+
+    * {
+
+    }
+
+    header {
+        height: 5vh;
         background-image: url("/img/sti-H.jpg");
         background-position: top center;
         background-size: 100vw auto;
-      }
-
-      #logo_frame {
-          height: 100%;
-          display: inline-block;
-          background-image: url("/img/peaklogo500b.png");
-          background-size: 3vh 3vh;
-
-      }
+        color: black;
+    }
 
     body{
         background-image: none;
         background-color: black;
+        position: absolute;
+        top: 5vh;
+        color: white;
     }
+
+    h1{
+        font-size: 5vh;
+    }
+
+
+    #logo_frame {
+        height: 4.5vh;
+        width: 4.5vh;
+        display: inline-block;
+        background-image: url("/img/peaklogo500b.png");
+        background-size: 4.5vh 4.5vh;
+        background-repeat: no-repeat;
+
+      }
 }
