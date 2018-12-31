@@ -11,10 +11,11 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private String difficulty;
+    private int difficulty;
+    private String description;
     private int capacity;
-    private Date dateCreated;
-    private Date dateGoing;
+    private String dateCreated;
+    private String dateGoing;
     @ManyToOne
     public Resort resort;
     @ManyToMany
@@ -33,19 +34,23 @@ public class Team {
         return this.name;
     }
 
-    public String getDifficulty() {
+    public int getDifficulty() {
         return this.difficulty;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public int getCapacity() {
         return this.capacity;
     }
 
-    public Date getDateCreated() {
+    public String getDateCreated() {
         return this.dateCreated;
     }
 
-    public Date getDateGoing() {
+    public String getDateGoing() {
         return this.dateGoing;
     }
 
@@ -53,19 +58,23 @@ public class Team {
         this.name = name;
     }
 
-    public void setDifficulty(String difficulty) {
+    public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;
     }
 
-    public void setDateGoing(Date dateGoing) {
+    public void setDateGoing(String dateGoing) {
         this.dateGoing = dateGoing;
     }
 
