@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-</head>
+
+<head th:replace="c_head :: head"></head>
+
+
+
 <body>
-    <header>
-        <div th:replace="common :: nav"></div>
-        <h1>Login Test</h1>
-    </header>
+
+    <header th:replace="c_header :: header"></header>
+
     <main>
         <form action="/perform_login" method="post">
             <label for="username">Username</label>
@@ -18,8 +20,10 @@
             <input type="submit" name="Login">
         </form>
     </main>
+
     <footer>
 
     </footer>
+
 </body>
 </html>

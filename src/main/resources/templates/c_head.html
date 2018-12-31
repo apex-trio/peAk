@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<!--...-->
-
 <head th:fragment="head">
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,30 +27,5 @@
     <script src="/js/views.js" type='text/javascript'></script>
 
 </head>
-
-<!--...-->
-
-<!--header should have a login/signup on the top right, logo on the left.-->
-<!--leave about, legal, contact, etc for footer-->
-
-<header th:fragment="header">
-    <div id="logo_frame"></div>
-    <!--<img id="head_logo" src="/img/peaklogo500w.png" alt="logo">-->
-
-    <h1>PEAK</h1>mountain matchmaking
-
-</header>
-
-<!--...-->
-
-<nav th:fragment="nav">
-    <div><a href="/">home</a></div>
-    <div><a href="/login">Login</a> </div>
-    <div><a href="/sign-up">Sign-Up</a></div>
-    <div><a href="/myProfile">Profile</a></div>
-</nav>
-
-<!--...-->
-
 
 </html>

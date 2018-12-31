@@ -36,22 +36,22 @@ public class AppUserController {
 
     @GetMapping("/")
     public String getHomePage() {
-        return "index_test";
+        return "index";
     }
 
     @GetMapping("/login")
     public String getLogin() {
-        return "login_test";
+        return "login";
     }
 
-    @GetMapping("/sign-up")
+    @GetMapping("/signup")
     public String getSignup() {
-        return "sign-up_test";
+        return "sign_up";
     }
 
     @GetMapping("/myProfile")
     public String getMyProfile() {
-        return "myProfile_test";
+        return "my_profile";
     }
 
 

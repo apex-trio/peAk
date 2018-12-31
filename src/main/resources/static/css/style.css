@@ -1,5 +1,8 @@
 * {
     font-family: 'Rubik', sans-serif;
+}
+
+html{
     box-sizing: border-box;
 }
 
@@ -10,7 +13,6 @@ body {
   }
 
 header {
-    height: 3vh;
     width: 100vw;
     position: fixed;
     top: 0;
@@ -25,9 +27,21 @@ h1 {
     display: inline-block;
 }
 
+nav{
+    display: inline-block;
+}
+
+nav > div {
+    display: inline-block;
+}
+
 i {
     background: transparent;
     color: white;
+}
+
+footer {
+    height: 3vh;
 }
 
 @media screen and (orientation:portrait) {
@@ -70,6 +84,7 @@ i {
 
 
 }
+
 @media screen and (orientation: landscape) {
 
     * {
