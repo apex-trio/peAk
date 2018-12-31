@@ -59,20 +59,15 @@ public class AppUserController {
 
 
     @RequestMapping(value = "/newAppUser", method = RequestMethod.POST)
-    public RedirectView addUsers(@RequestParam String username,
-                                 @RequestParam String password,
-                                 @RequestParam String bio,
-                                 @RequestParam String firstName,
-                                 @RequestParam String lastName) {
+    public RedirectView addUsers(AppUser user) {
 
-        String hashedPassword = bCryptPasswordEncoder.encode(password);
-        AppUser newUser = new AppUser(username, hashedPassword, bio, firstName, lastName);
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
-        Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null,
+        Authentication authentication = new UsernamePasswordAuthenticationToken(user, null,
                 new ArrayList<>());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        appUserRepo.save(newUser);
+        appUserRepo.save(user);
         return new RedirectView("/");
     }
 
