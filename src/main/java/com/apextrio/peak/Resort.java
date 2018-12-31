@@ -3,14 +3,18 @@ package com.apextrio.peak;
 import javax.persistence.*;
 import java.util.List;
 
+//TODO: Write SQL file to create all the entries we'll want
+//TODO: Maybe push changes up to Heroku??
+
 @Entity
 public class Resort {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private float latitude;
-    private float longitude;
+    private String nick;
+    private int widgetId;
+    private String otsUrl;
     private String website;
     @OneToMany(mappedBy = "resort")
     public List<Team> groups;
@@ -23,12 +27,16 @@ public class Resort {
         return this.name;
     }
 
-    public float getLatitude() {
-        return this.latitude;
+    public String getNick() {
+        return this.nick;
     }
 
-    public float getLongitude() {
-        return this.longitude;
+    public int getWidgetId() {
+        return this.widgetId;
+    }
+
+    public String getOtsUrl() {
+        return this.otsUrl;
     }
 
     public String getWebsite() {
@@ -39,12 +47,16 @@ public class Resort {
         this.name = name;
     }
 
-    public void setLatitude(float latitude) {
-        this.latitude = latitude;
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
-    public void setLongitude(float longitude) {
-        this.longitude = longitude;
+    public void setWidgetId(int widgetId) {
+        this.widgetId = widgetId;
+    }
+
+    public void setOtsUrl(String otsUrl) {
+        this.otsUrl = otsUrl;
     }
 
     public void setWebsite(String website) {
