@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="c_head :: head"></head>
+
+    <body>
+
+        <header th:replace="c_header :: header"></header>
+
+        <header th:replace="c_vertnav :: v_nav"></header>
+
+        <div th:replace="c_locations :: locations"></div>
+
+        <div class="transparent_body" id="mountain_detail">
+                mountain detail. this part needs to
+                draw based on what is clicked in the
+                locations nav to the left, id vertical_locations
+            </div>
+
+        <div th:replace="c_teams :: teams"></div>
+
+        <div class="transparent_body">
+            <i class="fas fa-snowboarding"></i>
+            <i class="fas fa-skiing"></i>
+            <i class="fas fa-skiing-nordic"></i>
+            <i class="fas fa-users"></i>
+            <i class="fas fa-snowflake"></i>
+            <i class="fas fa-mountain"></i>
+            <i class="fas fa-info-circle"></i>
+            <i class="fas fa-bars"></i>
+        </div>
+
+    </body>
+
+    <script src="/js/views.js" type='text/javascript'></script>
+
+</html>

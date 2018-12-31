@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="c_head :: head"></head>
+
+<body>
+
+    <header th:replace="c_header :: header"></header>
+
+    <main>
+        <form action="/newAppUser" method="post">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username">
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+
+            <label for="bio">Bio:</label>
+            <input type="text" name="bio" id="bio">
+
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" id="lastName">
+
+            <input type="submit" name="Sign-Up">
+        </form>
+    </main>
+
+    <footer>
+
+    </footer>
+
+</body>
+</html>

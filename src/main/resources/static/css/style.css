@@ -1,0 +1,143 @@
+* {
+    font-family: 'Rubik', sans-serif;
+}
+
+html{
+    box-sizing: border-box;
+}
+
+body {
+    background: url("/img/sti-H-20.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    box-sizing: border-box;
+    font-size: .9em;
+    color: white;
+    }
+
+.transparent_body{
+    background:rgba(0, 0, 0, 0.6);
+    margin: 5px 5px;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
+header {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    }
+
+#logo_frame {
+    display: inline-block;
+    background-image: url("/img/peaklogo500w.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    }
+
+h1 {
+    font-family: 'Viga', sans-serif;
+    display: inline-block;
+    color: white;
+}
+
+nav{
+    display: inline-block;
+}
+
+nav > div {
+    display: inline-block;
+}
+
+nav > div > a {
+     color: white;
+     text-decoration: none;
+}
+
+i {
+    background: transparent;
+    color: white;
+    font-size: 2.5em;
+}
+
+footer {
+    height: 3vh;
+}
+
+@media screen and (orientation:portrait) {
+
+    * {
+
+    }
+
+    body {
+        position: absolute;
+        top: 3vh;
+    }
+
+    header {
+        height: 3vh;
+        background-color: #1a4871;
+        color: white;
+    }
+
+    #v_nav{
+        display: inline-block;
+    }
+
+    body{
+        top: 3vh;
+    }
+
+    h1{
+        font-size: 2vh;
+    }
+
+    #logo_frame {
+        height: 3vh;
+        width: 3vh;
+        background-size: 2.5vh 2.5vh;
+
+    }
+
+
+}
+
+@media screen and (orientation: landscape) {
+
+    * {
+
+    }
+
+    header {
+        height: 5vh;
+        background-color: #1a4871;
+        color: black;
+    }
+
+    #v_nav{
+        display: none;
+    }
+
+    h1{
+        font-size: 3.5vh;
+    }
+
+    body{
+        position: absolute;
+        top: 5vh;
+    }
+
+    #logo_frame {
+        height: 5vh;
+        width: 5vh;
+        background-size: 4.5vh 4.5vh;
+
+    }
+}
