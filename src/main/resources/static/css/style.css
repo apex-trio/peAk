@@ -7,15 +7,22 @@ html{
 }
 
 body {
-
-    background: url("/img/sti-H.jpg") no-repeat center center fixed;
+    background: url("/img/sti-H-20.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     box-sizing: border-box;
     font-size: .9em;
+    color: white;
     }
+
+.transparent_body{
+    background:rgba(0, 0, 0, 0.6);
+    margin: 5px 5px;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
 
 header {
     width: 100vw;
@@ -56,6 +63,7 @@ nav > div > a {
 i {
     background: transparent;
     color: white;
+    font-size: 2.5em;
 }
 
 footer {
@@ -71,13 +79,16 @@ footer {
     body {
         position: absolute;
         top: 3vh;
-        color: black;
     }
 
     header {
         height: 3vh;
         background-color: #1a4871;
         color: white;
+    }
+
+    #v_nav{
+        display: inline-block;
     }
 
     body{
@@ -110,19 +121,17 @@ footer {
         color: black;
     }
 
-    h1{
+    #v_nav{
+        display: none;
+    }
 
+    h1{
         font-size: 3.5vh;
     }
 
     body{
-
-
-
         position: absolute;
         top: 5vh;
-        color: white;
-        width: 60%;
     }
 
     #logo_frame {

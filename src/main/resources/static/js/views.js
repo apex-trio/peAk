@@ -1,6 +1,7 @@
 'use strict'
 
 $(document).ready(() => {
-//    $('body').hide();
-//    $('body').fadeIn(1500);
+    $('#logo_frame').on('click', () => {
+        alert('jq works!')
+    });
 });
