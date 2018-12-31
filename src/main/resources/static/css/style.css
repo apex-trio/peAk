@@ -1,35 +1,85 @@
+* {
+    font-family: 'Rubik', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: .9em;
+    /*margin-left: auto;
+    margin-right: auto;*/
+  }
+
+header {
+    height: 3vh;
+    background-color: black;
+}
+
+h1 {
+    font-family: 'Viga', sans-serif;
+    display: inline-block;
+    margin-left: 3vh;
+}
+
+#logo_frame {
+    height: 3vh;
+    width: 3vh;
+    /* border-style: solid;
+    border-color: red;
+    border-width: 2px; */
+}
+
 i {
     background: transparent;
     color: white;
 }
 
-header {
-    height: 5vh;
-    background-color: black;
+@media screen and (orientation:portrait) {
+
+    * {
+        color: white;
+    }
+
+    header {
+        /*height: 3vh;*/
+        background-color: black;
+    }
+
+    #logo_frame {
+        height: 100%;
+        display: inline-block;
+        background-image: url("/img/peaklogo500w.png");
+        background-size: 3vh 3vh;
+    }
+
+    body {
+        background-image: url("/img/sti-H.jpg");
+        background-position: top center;
+        background-size: auto 100vh;
+    }
 }
+@media screen and (orientation: landscape) {
 
-#head_logo {
-    height: 100%;
-}
+    * {
+        color: black;
+    }
 
+    header {
+        /*height: 3vh;*/
+        background-image: url("/img/sti-H.jpg");
+        background-position: top center;
+        background-size: 100vw auto;
+      }
 
+      #logo_frame {
+          height: 100%;
+          display: inline-block;
+          background-image: url("/img/peaklogo500b.png");
+          background-size: 3vh 3vh;
 
-/*////////// MOBILE BY DEFAULT^v //////////*/
-body {
-    box-sizing: border-box;
-    font-size: .9em;
-    margin-left: auto;
-    margin-right: auto;
-  }
+      }
 
-/*////////// half/vert tablet //////////*/
-@media screen and (min-width: 500px) {
-
-
-}
-
-/*////////// fullscreen //////////*/
-@media screen and (min-width: 1100px) {
-
-
+    body{
+        background-image: none;
+        background-color: black;
+    }
 }
