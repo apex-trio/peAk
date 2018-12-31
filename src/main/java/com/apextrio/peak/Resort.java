@@ -3,7 +3,6 @@ package com.apextrio.peak;
 import javax.persistence.*;
 import java.util.List;
 
-//TODO: Write SQL file to create all the entries we'll want
 //TODO: Maybe push changes up to Heroku??
 
 @Entity
@@ -13,6 +12,8 @@ public class Resort {
     private long id;
     private String name;
     private String nick;
+    private float latitude;
+    private float longitude;
     private int widgetId;
     private String otsUrl;
     private String website;
@@ -29,6 +30,14 @@ public class Resort {
 
     public String getNick() {
         return this.nick;
+    }
+
+    public float getLatitude() {
+        return this.latitude;
+    }
+
+    public float getLongitude() {
+        return this.longitude;
     }
 
     public int getWidgetId() {
@@ -49,6 +58,14 @@ public class Resort {
 
     public void setNick(String nick) {
         this.nick = nick;
+    }
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
     }
 
     public void setWidgetId(int widgetId) {
