@@ -104,9 +104,7 @@ footer {
 
     header {
         height: 5vh;
-        background-image: url("/img/sti-H.jpg");
-        background-position: top center;
-        background-size: 100vw auto;
+        background-color: #1a4871;
         color: black;
     }
 
@@ -121,24 +119,18 @@ footer {
     }
 
     body{
-        background-image: none;
-        background-color: #1a4871;
+
+        background: url("/img/sti-H.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
         position: absolute;
         top: 5vh;
         color: white;
+        width: 60%;
     }
-
-    button {
-      background-color: #1a4871;
-      border: none;
-      color: white;
-      padding: 5px 10px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: .7em;
-    }
-
 
     #logo_frame {
         height: 5vh;
