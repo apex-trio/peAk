@@ -35,8 +35,8 @@ public class PostRoutesController {
         Resort r = resortRepo.findById(id).get();
         LocalDateTime now = LocalDateTime.now();
         t.resort = r;
-        t.setDateCreated(now.format(DateTimeFormatter.ofPattern("MM/dd/yy HH:mm")));
-        t.setDateGoing(now.format(DateTimeFormatter.ofPattern("MM/dd/yy HH:mm")));
+        t.setDateCreated(now.format(DateTimeFormatter.ofPattern("MM/dd/yy hh:mma")));
+        t.setDateGoing(now.format(DateTimeFormatter.ofPattern("MM/dd/yy hh:mma")));
         teamRepo.save(t);
         return new RedirectView("/");
     }
