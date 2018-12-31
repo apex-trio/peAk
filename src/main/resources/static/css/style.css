@@ -1,26 +1,18 @@
-div{
-    border: 1px;
-    border-style: solid;
-    border-color: white;
-}
-
-* {
-   background-color: #eee;
-   color: black;
-}
-
-html {
-   background-color: gray;
-}
-
-body {
-   background-color: red;
-}
-
 i {
     background: transparent;
     color: white;
 }
+
+header {
+    height: 5vh;
+    background-color: black;
+}
+
+#head_logo {
+    height: 100%;
+}
+
+
 
 /*////////// MOBILE BY DEFAULT^v //////////*/
 body {
@@ -33,17 +25,11 @@ body {
 /*////////// half/vert tablet //////////*/
 @media screen and (min-width: 500px) {
 
-    body {
-        width: 80vw;
-    }
 
 }
 
 /*////////// fullscreen //////////*/
 @media screen and (min-width: 1100px) {
 
-    body {
-        width: 60vw;
-    }
 
 }
