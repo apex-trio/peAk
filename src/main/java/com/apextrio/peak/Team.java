@@ -1,5 +1,8 @@
 package com.apextrio.peak;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -17,6 +20,8 @@ public class Team {
     private String dateCreated;
     private String dateGoing;
     @ManyToOne
+    //Same usage as reason in Resort.java
+    @JsonBackReference
     public Resort resort;
     @ManyToMany
     @JoinTable(
@@ -24,6 +29,8 @@ public class Team {
             joinColumns = {@JoinColumn(name = "team_id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
     )
+    //Same usage as reason in Resort.java
+    @JsonManagedReference
     public Set<AppUser> users;
 
     public long getId() {
