@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 //THIS FILE IS TEMPORARY. IT ONLY HOLDS POST HANDLERS TO BE USED IN OTHER CONTROLLERS AS THEY BECOME NEEDED
 @Controller
@@ -32,9 +33,10 @@ public class PostRoutesController {
     @PostMapping("/resorts/{id}/teams")
     public RedirectView createTeam(Team t, @PathVariable long id) {
         Resort r = resortRepo.findById(id).get();
+        LocalDateTime now = LocalDateTime.now();
         t.resort = r;
-        t.setDateCreated(new Date());
-        t.setDateGoing(new Date());
+        t.setDateCreated(now.format(DateTimeFormatter.ofPattern("MM/dd/yy hh:mma")));
+        t.setDateGoing(now.format(DateTimeFormatter.ofPattern("MM/dd/yy hh:mma")));
         teamRepo.save(t);
         return new RedirectView("/");
     }
