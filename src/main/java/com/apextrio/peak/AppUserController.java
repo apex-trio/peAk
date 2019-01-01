@@ -35,9 +35,13 @@ public class AppUserController {
     ///////////////////////////////// -- simple GET routes
 
     @GetMapping("/")
+//    public String getHomePage() {
+//        return "index";
+//    }
     public String getHomePage() {
-        return "index";
+        return "map";
     }
+
 
     @GetMapping("/login")
     public String getLogin() {
