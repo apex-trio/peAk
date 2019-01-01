@@ -12,8 +12,15 @@
         <div th:replace="c_locations :: locations"></div>
 
         <div class="transparent_body" id="mountain_detail">
-            <div class="ots-widget"><iframe id="o76973" width="300" height="314" border="0" frameborder="0" scrolling="no" src="https://www.onthesnow.com/widget/snow?resort=124&color=b"></iframe><p><a href="https://www.onthesnow.com/washington/crystal-mountain-wa/skireport.html" target="_blank">Powered by OnTheSnow.com</a></p></div>
+
+            <h1 id="ajax_test"th:text="${locations[0]}"></h1>
+
+            <div class="ots-widget">
+                <iframe id="o80696" width="300" height="314" border="0" frameborder="0" scrolling="no" th:src="'https://www.onthesnow.com/widget/snow?resort=' + ${locations[0].widgetId} + '&color=b'"></iframe>
+                <p><a th:href="${locations[0].otsUrl}" target="_blank">Powered by OnTheSnow.com</a></p>
             </div>
+
+        </div>
 
         <div th:replace="c_teams :: teams"></div>
 

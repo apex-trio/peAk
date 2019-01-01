@@ -4,11 +4,12 @@
 <div class="transparent_body" id="vertical_locations" th:fragment="locations">
 
     <span>RESORTS ELEMENT</span>
-    <!--<ul>-->
-        <!--<li th:each="location : ${locations}">-->
-            <!--<span th:text="${location}"></span>-->
-        <!--</li>-->
-    <!--</ul>-->
+
+
+        <div class="resort_button_div" th:attr="data-id=${location.id}" th:each="location : ${locations}">
+            <span th:attr="dId=${location.id}" class="resort_button_div_text" th:text="${location}"></span>
+        </div>
+
 
 
 

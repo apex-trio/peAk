@@ -18,7 +18,7 @@ public class Resort {
     private String otsUrl;
     private String website;
     @OneToMany(mappedBy = "resort")
-    public List<Team> groups;
+    public List<Team> teams;
 
     public long getId() {
         return this.id;
