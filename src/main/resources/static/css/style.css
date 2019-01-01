@@ -70,6 +70,10 @@ footer {
     height: 3vh;
 }
 
+#map {
+    height: 10%;
+}
+
 @media screen and (orientation:portrait) {
 
     * {

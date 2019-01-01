@@ -38,6 +38,10 @@ public class AppUserController {
         return "index";
     }
 
+//    public String getMapPage() {
+//        return "map";
+//    }
+
 //    @GetMapping("/resorts/{id}")
 //    public Resort getResort(@PathVariable long id){
 //        return resortRepo.findById(id).get();
