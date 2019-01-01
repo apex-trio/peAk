@@ -1,6 +1,7 @@
 package com.apextrio.peak;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -21,7 +22,7 @@ public class Resort {
     private String website;
     @OneToMany(mappedBy = "resort")
     //This fixes a bug when getting resort info via AJAX. Solution found at https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
-    @JsonIgnore
+    @JsonManagedReference
     public List<Team> teams;
 
     public long getId() {

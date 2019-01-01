@@ -1,5 +1,6 @@
 package com.apextrio.peak;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -19,6 +20,8 @@ public class AppUser implements UserDetails {
     private String firstName;
     private String lastName;
     @ManyToMany(mappedBy = "users")
+    //Same usage as reason in Resort.java
+    @JsonBackReference
     public Set<Team> teams;
 
     public AppUser(String username, String password, String bio, String firstName, String lastName) {
