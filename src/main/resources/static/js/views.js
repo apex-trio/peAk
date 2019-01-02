@@ -38,8 +38,8 @@ $(document).ready(() => {
 
     }
 
-    var map;
     function modMap(lat, long) {
+    var map;
     var myLatlng = new google.maps.LatLng(lat, long);
 
     var mapOptions = {
