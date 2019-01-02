@@ -1,5 +1,7 @@
 'use strict'
 
+
+
 $(document).ready(() => {
 
 //    $('#logo_frame').on('click', () => {
@@ -20,7 +22,9 @@ $(document).ready(() => {
             $('#ajax_test').text(resort.name);
 
             // inserting modMap function to change map center point via map input
-            modMap(resort.lat, resort.long);
+            let latty = resort.lat;
+            let longy = resort.long;
+            modMap(latty, longy);
 
             $('.ots-widget > iframe').attr('src', 'https://www.onthesnow.com/widget/snow?resort=' + resort.widgetId + '&color=b');
             $('.ots-widget > p > a').attr('href', resort.otsUrl);
@@ -31,6 +35,9 @@ $(document).ready(() => {
                 div.append('<span>' + team.name + ' </span>');
                 div.append('<span>' + team.users.length + '/' + team.capacity + ' </span>');
                 div.append('<span>' + team.description + ' </span>');
+
+                div.append('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxgddLplSZhq5H2eEIxCPdacE-VmAWHk0&callback=modMap" async defer></script>');
+
                 $('#teams').append(div);
             });
 
@@ -38,18 +45,24 @@ $(document).ready(() => {
 
     }
 
+    console.log("in views.js");
     var map;
-    function modMap(lat, long) {
-    var myLatlng = new google.maps.LatLng(lat, long);
 
-    var mapOptions = {
-      zoom: 8,
-      center: myLatlng,
-      mapTypeId: 'terrain'
-    };
+    function modMap() {
 
-    map = new google.maps.Map(document.getElementById('map'),
-     mapOptions);
+//    Latitude: 47.4248345
+////    Longitude: -121.4184276
+//var latty = 47.4248345
+//var longy = -121.4184276
+        var myLatlng = new google.maps.LatLng(47.4248345, -121.4184276);
+
+        var mapOptions = {
+          zoom: 7,
+          center: myLatlng,
+          mapTypeId: 'terrain'
+        };
+
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
     }
 
 });
