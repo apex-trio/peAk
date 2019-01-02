@@ -1,5 +1,7 @@
 'use strict'
 
+
+
 $(document).ready(() => {
 
 //    $('#logo_frame').on('click', () => {
@@ -20,7 +22,16 @@ $(document).ready(() => {
             $('#ajax_test').text(resort.name);
 
             // inserting modMap function to change map center point via map input
-            modMap(resort.lat, resort.long);
+//            let latty = resort.lat;
+//            let longy = resort.long;
+
+            console.log("This is our resort latitude", resort.latitude);
+            console.log("This is our resort longitude", resort.longitude);
+
+            localStorage.setItem('storedLat', JSON.stringify(resort.latitude));
+            localStorage.setItem('storedLong', JSON.stringify(resort.longitude));
+
+            modMap();
 
             $('.ots-widget > iframe').attr('src', 'https://www.onthesnow.com/widget/snow?resort=' + resort.widgetId + '&color=b');
             $('.ots-widget > p > a').attr('href', resort.otsUrl);
@@ -31,6 +42,9 @@ $(document).ready(() => {
                 div.append('<span>' + team.name + ' </span>');
                 div.append('<span>' + team.users.length + '/' + team.capacity + ' </span>');
                 div.append('<span>' + team.description + ' </span>');
+
+                div.append('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxgddLplSZhq5H2eEIxCPdacE-VmAWHk0&callback=modMap" async defer></script>');
+
                 $('#teams').append(div);
             });
 
@@ -38,19 +52,22 @@ $(document).ready(() => {
 
     }
 
-    function modMap() {
+    console.log("in views.js");
     var map;
-        
-    var myLatlng = new google.maps.LatLng(lat, long);
 
-    var mapOptions = {
-      zoom: 8,
-      center: myLatlng,
-      mapTypeId: 'terrain'
-    };
+    function modMap() {
 
-    map = new google.maps.Map(document.getElementById('map'),
-     mapOptions);
+        var resortLat = JSON.parse(localStorage.getItem('storedLat'));
+        var resortLong = JSON.parse(localStorage.getItem('storedLong'));
+        var myLatlng = new google.maps.LatLng(resortLat, resortLong);
+
+        var mapOptions = {
+          zoom: 9,
+          center: myLatlng,
+          mapTypeId: 'terrain'
+        };
+
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
     }
 
 });
