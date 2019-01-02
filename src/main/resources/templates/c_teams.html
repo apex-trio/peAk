@@ -8,6 +8,7 @@
         <span th:text="${team}"></span>
         <span th:text="${team.users.size()} + '/' + ${team.capacity}"></span>
         <span th:text="${team.description}">beer. blackjack. hookers</span>
+        <a th:href="'/teams/' + ${team.id}">View</a>
         <!--<span>beer. blackjack. hookers</span>-->
 
         <!--diff-img | group name | how full-->
