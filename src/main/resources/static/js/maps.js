@@ -3,6 +3,8 @@
 var map;
 function initMap() {
 var myLatlng = new google.maps.LatLng(-34.397, 150.644);
+//var myLatlng = new google.maps.LatLng(lat, long);
+
 
 var mapOptions = {
   zoom: 8,

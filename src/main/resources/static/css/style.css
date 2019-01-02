@@ -71,7 +71,9 @@ footer {
 }
 
 #map {
+    float: right;
     height: 10%;
+    z-index: 0;
 }
 
 @media screen and (orientation:portrait) {
@@ -110,6 +112,12 @@ footer {
 
     }
 
+    #map {
+        float: right;
+        height: 10%;
+        z-index: 0;
+    }
+
 
 }
 
@@ -143,5 +151,11 @@ footer {
         width: 5vh;
         background-size: 4.5vh 4.5vh;
 
+    }
+
+    #map {
+        float: right;
+        height: 10%;
+        z-index: 0;
     }
 }
