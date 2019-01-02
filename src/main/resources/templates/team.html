@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head th:replace="c_head :: head"></head>
+
+    <body>
+
+        <header th:replace="c_header :: header"></header>
+
+        <header th:replace="c_vertnav :: v_nav"></header>
+
+        <div th:replace="c_locations :: locations"></div>
+
+        <!--Basic group information-->
+        <div>
+            <span th:text="'Name:' + ${team}"></span>
+            <span th:text="'Description:' + ${team.description}"></span>
+            <span th:text="'Difficulty:' + ${team.difficulty}"></span>
+            <span th:text="'Current Size:' + ${team.users.size()} + '/' + ${team.capacity}"></span>
+            <span th:text="'Created:' + ${team.dateCreated}"></span>
+            <span th:text="'Going On:' + ${team.dateGoing}"></span>
+
+            <!--List of memebers in the group. Only shown to logged in users-->
+            <div sec:authorize="isAuthenticated()">
+                <div th:each="user : ${team.users}">
+                    <span th:text="${user.username}"></span>
+                    <span th:text="${user.firstName} + ' ' + ${user.lastName}"></span>
+                    <span th:text="${user.bio}"></span>
+                </div>
+            </div>
+
+            <!--Option to join the group, only available to logged in users-->
+            <form sec:authorize="isAuthenticated()" th:if="(${team.users.size()} < ${team.capacity} and !${inGroup})" th:action="'/teams/' + ${team.id}" method="post">
+                <input type="submit">
+            </form>
+        </div>
+
+    </body>
+
+</html>

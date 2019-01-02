@@ -42,8 +42,7 @@ $(document).ready(() => {
                 div.append('<span>' + team.name + ' </span>');
                 div.append('<span>' + team.users.length + '/' + team.capacity + ' </span>');
                 div.append('<span>' + team.description + ' </span>');
-
-
+                div.append('<a href="/teams/' + team.id + '">View</a>')
                 $('#teams').append(div);
 
             });
