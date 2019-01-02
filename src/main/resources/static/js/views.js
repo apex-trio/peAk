@@ -22,9 +22,16 @@ $(document).ready(() => {
             $('#ajax_test').text(resort.name);
 
             // inserting modMap function to change map center point via map input
-            let latty = resort.lat;
-            let longy = resort.long;
-            modMap(latty, longy);
+//            let latty = resort.lat;
+//            let longy = resort.long;
+
+            console.log("This is our resort latitude", resort.latitude);
+            console.log("This is our resort longitude", resort.longitude);
+
+            localStorage.setItem('storedLat', JSON.stringify(resort.latitude));
+            localStorage.setItem('storedLong', JSON.stringify(resort.longitude));
+
+            modMap();
 
             $('.ots-widget > iframe').attr('src', 'https://www.onthesnow.com/widget/snow?resort=' + resort.widgetId + '&color=b');
             $('.ots-widget > p > a').attr('href', resort.otsUrl);
@@ -50,19 +57,21 @@ $(document).ready(() => {
 
     function modMap() {
 
-//    Latitude: 47.4248345
-////    Longitude: -121.4184276
-//var latty = 47.4248345
-//var longy = -121.4184276
-        var myLatlng = new google.maps.LatLng(47.4248345, -121.4184276);
+        var resortLat = JSON.parse(localStorage.getItem('storedLat'));
+        var resortLong = JSON.parse(localStorage.getItem('storedLong'));
+        var myLatlng = new google.maps.LatLng(resortLat, resortLong);
 
         var mapOptions = {
-          zoom: 7,
+          zoom: 9,
           center: myLatlng,
           mapTypeId: 'terrain'
         };
 
+        var location = {lat: resortLat, lng: resortLong};
+
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        var marker = new google.maps.Marker({position: location, map: map});
+
     }
 
 });
