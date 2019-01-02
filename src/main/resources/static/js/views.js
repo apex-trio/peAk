@@ -43,10 +43,13 @@ $(document).ready(() => {
                 div.append('<span>' + team.users.length + '/' + team.capacity + ' </span>');
                 div.append('<span>' + team.description + ' </span>');
 
-                div.append('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxgddLplSZhq5H2eEIxCPdacE-VmAWHk0&callback=modMap" async defer></script>');
 
                 $('#teams').append(div);
+
             });
+            
+            $('body').append('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxgddLplSZhq5H2eEIxCPdacE-VmAWHk0&callback=modMap" async defer></script>');
+
 
         })
 
