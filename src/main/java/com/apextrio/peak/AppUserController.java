@@ -79,4 +79,9 @@ public class AppUserController {
         return new RedirectView("/");
     }
 
+    @RequestMapping(value = "/signup/{teamId}", method = RequestMethod.GET)
+    public String signUpFromGroupPage(@PathVariable long teamId, Model m) {
+        m.addAttribute("teamId", teamId);
+        return "sign_up";
+    }
 }
