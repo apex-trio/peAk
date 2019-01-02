@@ -67,7 +67,11 @@ $(document).ready(() => {
           mapTypeId: 'terrain'
         };
 
+        var location = {lat: resortLat, lng: resortLong};
+
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        var marker = new google.maps.Marker({position: location, map: map});
+
     }
 
 });

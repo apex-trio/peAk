@@ -13,5 +13,8 @@ function initMap() {
           mapTypeId: 'terrain'
         };
 
+      var location = {lat: 46.92332964, lng: -121.475998096};
+
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        var marker = new google.maps.Marker({position: location, map: map});
 }
