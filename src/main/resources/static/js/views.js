@@ -33,6 +33,11 @@ $(document).ready(() => {
 
             modMap();
 
+  
+            $('#report_container > iframe').attr('src', 'https://www.onthesnow.com/widget/snow?resort=' + resort.widgetId + '&color=b');
+            $('#report_container > p > a').attr('href', resort.otsUrl);
+            $('#teams').empty();
+
             $('.ots-widget > iframe').attr('src', 'https://www.onthesnow.com/widget/snow?resort=' + resort.widgetId + '&color=b');
             $('.ots-widget > p > a').attr('href', resort.otsUrl);
             if ($('#create').length) {
@@ -40,6 +45,7 @@ $(document).ready(() => {
             } else {
                 $('#teams').empty();
             }
+
             resort.teams.forEach(team => {
                 let div = $('<div class="team_card" data-id="' + team.id + '"></div>');
                 div.append('<span>' + team.difficulty + ' </span>');
@@ -50,7 +56,7 @@ $(document).ready(() => {
                 $('#teams').append(div);
 
             });
-            
+
             $('body').append('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxgddLplSZhq5H2eEIxCPdacE-VmAWHk0&callback=modMap" async defer></script>');
 
 
@@ -77,7 +83,22 @@ $(document).ready(() => {
 
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
         var marker = new google.maps.Marker({position: location, map: map});
-
     }
+
+
+    //////////
+
+
+    $('#mobile_nav_button_left').on('click', () => {
+                $( "#vertical_locations_m" ).slideToggle();
+            });
+
+        $('.resort_button_div').on('click', () => {
+            $( "#vertical_locations_m" ).hide(0);
+        });
+
+    $('#vertical_locations_m').on('mouseleave', () => {
+            $( "#vertical_locations_m" ).slideUp();
+        });
 
 });
