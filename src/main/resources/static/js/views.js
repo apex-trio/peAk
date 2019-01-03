@@ -93,12 +93,22 @@ $(document).ready(() => {
                 $( "#vertical_locations_m" ).slideToggle();
             });
 
-        $('.resort_button_div').on('click', () => {
-            $( "#vertical_locations_m" ).hide(0);
-        });
+    $('.resort_button_div').on('click', () => {
+        $( "#vertical_locations_m" ).hide(0);
+    });
 
     $('#vertical_locations_m').on('mouseleave', () => {
             $( "#vertical_locations_m" ).slideUp();
         });
+
+    ///
+
+    $('#mobile_nav_button_right').on('click', () => {
+                    $("#nav_m").slideToggle();
+                });
+
+    $('#nav_m').on('mouseleave', () => {
+                $( "#nav_m" ).slideUp();
+            });
 
 });
