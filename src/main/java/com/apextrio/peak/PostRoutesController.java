@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -31,7 +32,7 @@ public class PostRoutesController {
 
     //Route should be based on  a resorts id so the group can be assigned to the proper resort. Will take in name, capacity, and difficulty.
     @PostMapping("/resorts/{id}")
-    public RedirectView createTeam(Team t, @PathVariable long id, @RequestParam String dateGoing) {
+    public RedirectView createTeam(Team t, @PathVariable long id, @RequestParam String dateGoing, Principal p) {
         Resort r = resortRepo.findById(id).get();
         LocalDateTime now = LocalDateTime.now();
         t.resort = r;
