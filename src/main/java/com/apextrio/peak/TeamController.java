@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
@@ -46,5 +47,10 @@ public class TeamController {
         t.users.add(userRepo.findById(joining.getId()).get());
         teamRepo.save(t);
         return new RedirectView("/teams/" + id);
+    }
+
+    @GetMapping("/newteam")
+    public String teamForm(@RequestParam long resortId) {
+        return "teamForm";
     }
 }
