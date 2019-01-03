@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<div class="transparent_body" id="vertical_locations" th:fragment="locations">
+<div class="shades" id="vertical_locations" th:fragment="locations">
 
-    <span>RESORTS ELEMENT</span>
+    <h1>RESORTS</h1>
 
 
         <div class="resort_button_div" th:attr="data-id=${location.id}" th:each="location : ${locations}">
-            <span th:attr="dId=${location.id}" class="resort_button_div_text" th:text="${location}"></span>
+            <span th:attr="dId=${location.id}" class="resort_button_div_text" th:text="${location.nick}"></span>
         </div>
 
 

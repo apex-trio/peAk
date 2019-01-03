@@ -3,39 +3,46 @@
 
     <head th:replace="c_head :: head"></head>
 
+
+
     <body>
 
+        <section id="head_space"></section>
+        <!--id="logo_frame"-->
         <header th:replace="c_header :: header"></header>
 
-        <header th:replace="c_vertnav :: v_nav"></header>
-
+        <!--class="shades" id="vertical_locations"-->
         <div th:replace="c_locations :: locations"></div>
+        <div class="shades" id="mountain_detail">
 
-        <div class="transparent_body" id="mountain_detail">
+            <div id="resort_title"><h1 id="ajax_test"th:text="${locations[0]}"></h1></div>
 
-            <h1 id="ajax_test"th:text="${locations[0]}"></h1>
-
-            <div class="ots-widget">
-                <iframe id="o80696" width="300" height="314" border="0" frameborder="0" scrolling="no" th:src="'https://www.onthesnow.com/widget/snow?resort=' + ${locations[0].widgetId} + '&color=b'"></iframe>
-                <p><a th:href="${locations[0].otsUrl}" target="_blank">Powered by OnTheSnow.com</a></p>
+            <div id="report_container">
+                <iframe id="o80696" height="300" border="0" frameborder="0" scrolling="no" th:src="'https://www.onthesnow.com/widget/snow?resort=' + ${locations[0].widgetId} + '&color=b'"></iframe>
+                <p id="add_tag"><a th:href="${locations[0].otsUrl}" target="_blank">Powered by OnTheSnow.com</a></p>
             </div>
 
+
+            <div id="map"></div>
+
         </div>
 
-        <div id="map"></div>
 
-        <div th:replace="c_teams :: teams"></div>
+        <!--<div id="map"></div>-->
 
-        <div class="transparent_body">
-            <i class="fas fa-snowboarding"></i>
-            <i class="fas fa-skiing"></i>
-            <i class="fas fa-skiing-nordic"></i>
-            <i class="fas fa-users"></i>
-            <i class="fas fa-snowflake"></i>
-            <i class="fas fa-mountain"></i>
-            <i class="fas fa-info-circle"></i>
-            <i class="fas fa-bars"></i>
-        </div>
+
+        <!--<div th:replace="c_teams :: teams"></div>-->
+
+        <!--<div class="transparent_body">-->
+            <!--<i class="fas fa-snowboarding"></i>-->
+            <!--<i class="fas fa-skiing"></i>-->
+            <!--<i class="fas fa-skiing-nordic"></i>-->
+            <!--<i class="fas fa-users"></i>-->
+            <!--<i class="fas fa-snowflake"></i>-->
+            <!--<i class="fas fa-mountain"></i>-->
+            <!--<i class="fas fa-info-circle"></i>-->
+            <!--<i class="fas fa-bars"></i>-->
+        <!--</div>-->
 
     </body>
 

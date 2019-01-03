@@ -1,9 +1,20 @@
+html{
+
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
+	-ms-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+}
+
 * {
     font-family: 'Rubik', sans-serif;
 }
 
-html{
-    box-sizing: border-box;
+div, section {
+    border: thin red solid;
 }
 
 body {
@@ -12,16 +23,18 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    box-sizing: border-box;
+    width: 100%;
     font-size: .9em;
     color: white;
     }
 
-.transparent_body{
-    background:rgba(0, 0, 0, 0.6);
-    margin: 5px 5px;
+.shades{
+
+    background:rgba(0, 0, 0, 0.4);
     padding: 5px 5px;
     border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
 }
 
 header {
@@ -32,6 +45,8 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    background-color: #1a4871;
+    color: white;
     }
 
 #logo_frame {
@@ -71,10 +86,10 @@ footer {
 }
 
 #map {
-    width: 100%;
-    height: 400px;
     background-color: grey;
+    display: inline-block;
 }
+
 
 @media screen and (orientation:portrait) {
 
@@ -82,23 +97,21 @@ footer {
 
     }
 
-    body {
+    body{
         position: absolute;
         top: 3vh;
     }
 
+    head_space {
+        height: 3vh;
+    }
+
     header {
         height: 3vh;
-        background-color: #1a4871;
-        color: white;
     }
 
-    #v_nav{
-        display: inline-block;
-    }
-
-    body{
-        top: 3vh;
+    #vertical_locations{
+        display: none;
     }
 
     h1{
@@ -112,6 +125,26 @@ footer {
 
     }
 
+    #report_container{
+        width: 100%;
+        position: relative;
+    }
+
+    #o80696 {
+        width: 100%;
+    }
+
+    #add_tag{
+        position: absolute;
+        bottom: 10px;
+        left:10px;
+    }
+
+    #map{
+        width: 100%;
+        height: 300px;
+    }
+
 }
 
 @media screen and (orientation: landscape) {
@@ -120,30 +153,70 @@ footer {
 
     }
 
-    header {
-        height: 5vh;
-        background-color: #1a4871;
-        color: black;
+    body{
+        position: absolute;
+        top: 5vh;
     }
 
-    #v_nav{
-        display: none;
+    head_space {
+        height: 5vh;
+        }
+
+    header {
+        height: 5vh;
+    }
+
+    #vertical_locations{
+        display:inline-block;
+        width: calc(20% - 10px);
+        height: 366px;
+        float:left;
+    }
+
+    #mountain_detail{
+        display:inline-block;
+        width: calc(80% - 10px);
+        /* height: calc(95vh - 10px); */
+        float:left;
+
     }
 
     h1{
         font-size: 3.5vh;
     }
 
-    body{
-        position: absolute;
-        top: 5vh;
-    }
 
     #logo_frame {
         height: 5vh;
         width: 5vh;
         background-size: 4.5vh 4.5vh;
 
+    }
+
+    #resort_title{
+        height: 50px;
+    }
+
+    #map{
+        width: calc(100% - 310px);
+        height: 300px;
+    }
+
+    #report_container{
+        width: 100%;
+        position: relative;
+        display: inline-block;
+    }
+
+    #report_container{
+        width: 300px;
+        position: relative;
+    }
+
+    #add_tag{
+        position: absolute;
+        bottom: 10px;
+        left:10px;
     }
 
 }
