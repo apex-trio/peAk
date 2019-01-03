@@ -19,7 +19,7 @@
             <span th:text="'Going On:' + ${team.dateGoing}"></span>
 
             <!--List of memebers in the group. Only shown to logged in users-->
-            <div sec:authorize="isAuthenticated()">
+            <div id="users" sec:authorize="isAuthenticated()">
                 <div th:each="user : ${team.users}">
                     <span th:text="${user.username}"></span>
                     <span th:text="${user.firstName} + ' ' + ${user.lastName}"></span>
