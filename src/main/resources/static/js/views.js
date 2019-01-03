@@ -76,4 +76,20 @@ $(document).ready(() => {
         var marker = new google.maps.Marker({position: location, map: map});
     }
 
+
+    //////////
+
+
+    $('#mobile_nav_button_left').on('click', () => {
+                $( "#vertical_locations_m" ).slideToggle();
+            });
+
+        $('.resort_button_div').on('click', () => {
+            $( "#vertical_locations_m" ).hide(0);
+        });
+
+    $('#vertical_locations_m').on('mouseleave', () => {
+            $( "#vertical_locations_m" ).slideUp();
+        });
+
 });

@@ -11,15 +11,30 @@
         <!--id="logo_frame"-->
         <header th:replace="c_header :: header"></header>
 
+        <section id="mobile_nav_spacer"></section>
+
+        <nav id="mobile_nav">
+            <div id="mobile_nav_button_left">
+                <i id="nav_icon" class="fas fa-mountain"></i>
+            </div>
+
+            <div id="mobile_nav_button_right">
+                <div>X</div>
+            </div>
+        </nav>
+
         <!--class="shades" id="vertical_locations"-->
         <div th:replace="c_locations :: locations"></div>
+        <div th:replace="c_locations_m :: locations"></div>
+
+
         <div class="shades" id="mountain_detail">
 
             <div id="resort_title"><h1 id="ajax_test"th:text="${locations[0]}"></h1></div>
 
             <div id="report_container">
                 <iframe id="o80696" height="300" border="0" frameborder="0" scrolling="no" th:src="'https://www.onthesnow.com/widget/snow?resort=' + ${locations[0].widgetId} + '&color=b'"></iframe>
-                <p id="add_tag"><a th:href="${locations[0].otsUrl}" target="_blank">Powered by OnTheSnow.com</a></p>
+                <p id="add_tag"><a th:href="${locations[0].otsUrl}" target="_blank">Report from OnTheSnow.com</a></p>
             </div>
 
 
@@ -30,8 +45,16 @@
 
         <!--<div id="map"></div>-->
 
+<section id="groups_readout">
+    <div th:replace="c_teams :: teams"></div>
+    <div th:replace="c_teams :: teams"></div>
+    <div th:replace="c_teams :: teams"></div>
+    <div th:replace="c_teams :: teams"></div>
+    <div th:replace="c_teams :: teams"></div>
+    <div th:replace="c_teams :: teams"></div>
+    <div th:replace="c_teams :: teams"></div>
 
-        <!--<div th:replace="c_teams :: teams"></div>-->
+</section>
 
         <!--<div class="transparent_body">-->
             <!--<i class="fas fa-snowboarding"></i>-->
