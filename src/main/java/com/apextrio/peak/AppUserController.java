@@ -77,14 +77,17 @@ public class AppUserController {
         } else {
             return new RedirectView("/teams/" + teamId);
         }
-
-
     }
 
-    @RequestMapping(value = "/signup/{teamId}", method = RequestMethod.GET)
-    public String signUpFromGroupPage(@PathVariable long teamId, Model m) {
-        m.addAttribute("teamId", teamId);
-        return "sign_up";
+    @PostMapping ("/updateProfile")
+    public RedirectView updateProfileBio(@RequestParam String bioUpdate, Principal p) {
+
+        AppUser currentUser = appUserRepo.findByUsername(p.getName());
+
+        currentUser.setBio(bioUpdate);
+
+        appUserRepo.save(currentUser);
+        return new RedirectView("/myProfile");
     }
 
 }
