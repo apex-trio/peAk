@@ -1,6 +1,7 @@
 package com.apextrio.peak;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -30,7 +31,7 @@ public class Team {
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
     )
     //Same usage as reason in Resort.java
-    @JsonManagedReference
+    @JsonIgnore
     public Set<AppUser> users = new HashSet<>();
 
     public long getId() {
