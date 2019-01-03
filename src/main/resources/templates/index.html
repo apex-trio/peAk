@@ -19,14 +19,14 @@
             </div>
         </nav>
 
-        <div id="mobile_nav_button_right">
-            <div><i id="nav_icon_user" class="fas fa-user"></i></div>
+        <div id="mobile_nav_buttons_right">
+            <nav th:replace="c_nav_m :: nav_m"></nav>
         </div>
 
         <!--class="shades" id="vertical_locations"-->
         <div th:replace="c_locations :: locations"></div>
         <div th:replace="c_locations_m :: locations"></div>
-        <nav th:replace="c_nav_m :: nav_m"></nav>
+        <!--<nav th:replace="c_nav_m :: nav_m"></nav>-->
 
         <div class="shades" id="mountain_detail">
 

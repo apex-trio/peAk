@@ -156,6 +156,7 @@ footer {
         border-radius: 0px 5px 5px 0px;
         padding-left: 5px;
         padding-right: 5px;
+
     }
 
     #vertical_locations{
@@ -175,36 +176,26 @@ footer {
         width: 50px;
         height: 50px;
         margin: 0px 5px 0px 0px;
-        border-radius: 0px 15px 3px 0px;
+        border-radius: 0px 10px 3px 0px;
         background:rgba(0, 0, 0, 1);
     }
 
-    #mobile_nav_button_right{
+    #mobile_nav_buttons_right{
 
         position: absolute;
 
         top: 5px;
-        left: 60px;
+        right: 0px;
 
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-content: center;
         align-items: center;
 
-        width: 50px;
+        width: calc(100vw - 70px);
         height: 50px;
-        margin: 0px 0px 0px 0px;
-        border-radius: 15px 15px 0px 0px;
-        background-color: black;
-    }
-
-    #nav_m{
-        display:none;
-        position: absolute;
-        top: 55px;
-        right: 0;
-        z-index: 10;
-        width: 100%;
+        padding-right: 20px;
+        border-radius: 10px 10px 0px 0px;
         background:rgba(0, 0, 0, 1);
     }
 
@@ -268,7 +259,6 @@ footer {
         height: 5vh;
     }
 
-
     .shades{
 
         background:rgba(0, 0, 0, 0.7);
@@ -280,6 +270,25 @@ footer {
 
     #mobile_nav{
         display: none;
+    }
+
+#mobile_nav_buttons_right{
+
+            position: absolute;
+
+            top: 0px;
+            right: 10px;
+
+            display: flex;
+            justify-content: flex-end;
+            align-content: center;
+            align-items: center;
+
+            width: calc(100vw - 70px);
+            height: 5vh;
+            margin: 0px 0px 0px 0px;
+
+
     }
 
     .team_card{

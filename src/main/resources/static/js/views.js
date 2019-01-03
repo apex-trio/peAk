@@ -107,8 +107,8 @@ $(document).ready(() => {
                     $("#nav_m").slideToggle();
                 });
 
-    $('#nav_m').on('mouseleave', () => {
-                $( "#nav_m" ).slideUp();
-            });
+//    $('#nav_m').on('mouseleave', () => {
+//                $( "#nav_m" ).slideUp();
+//            });
 
 });
