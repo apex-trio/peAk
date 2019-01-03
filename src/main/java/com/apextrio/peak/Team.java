@@ -31,7 +31,7 @@ public class Team {
     )
     //Same usage as reason in Resort.java
     @JsonManagedReference
-    public Set<AppUser> users;
+    public Set<AppUser> users = new HashSet<>();
 
     public long getId() {
         return this.id;

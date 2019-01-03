@@ -1,6 +1,7 @@
 package com.apextrio.peak;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 @Controller
 public class PostRoutesController {
     @Autowired
-    public AppUserRepository appUserRepo;
+    public AppUserRepository userRepo;
 
     @Autowired
     public TeamRepository teamRepo;
@@ -33,14 +34,17 @@ public class PostRoutesController {
     //Route should be based on  a resorts id so the group can be assigned to the proper resort. Will take in name, capacity, and difficulty.
     @PostMapping("/resorts/{id}")
     public RedirectView createTeam(Team t, @PathVariable long id, @RequestParam String dateGoing, Principal p) {
+        AppUser user = (AppUser) (((UsernamePasswordAuthenticationToken) p).getPrincipal());
+        user = userRepo.findById(user.getId()).get();
         Resort r = resortRepo.findById(id).get();
         LocalDateTime now = LocalDateTime.now();
         t.resort = r;
         t.setDateCreated(now.format(DateTimeFormatter.ofPattern("M/d/yy h:mma")));
         LocalDateTime going = LocalDateTime.parse(dateGoing);
         t.setDateGoing(going.format(DateTimeFormatter.ofPattern("M/d/yy h:mma")));
-        teamRepo.save(t);
-        return new RedirectView("/");
+        t.users.add(user);
+         t = teamRepo.save(t);
+        return new RedirectView("/teams/" + t.getId());
     }
 }
 
