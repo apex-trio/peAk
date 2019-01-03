@@ -33,17 +33,26 @@ $(document).ready(() => {
 
             modMap();
 
+  
             $('#report_container > iframe').attr('src', 'https://www.onthesnow.com/widget/snow?resort=' + resort.widgetId + '&color=b');
             $('#report_container > p > a').attr('href', resort.otsUrl);
             $('#teams').empty();
+
+            $('.ots-widget > iframe').attr('src', 'https://www.onthesnow.com/widget/snow?resort=' + resort.widgetId + '&color=b');
+            $('.ots-widget > p > a').attr('href', resort.otsUrl);
+            if ($('#create').length) {
+                $('#teams').empty().append('<a href="/newteam?resortId=' + resort.id + '">Create a Team</a>');
+            } else {
+                $('#teams').empty();
+            }
+
             resort.teams.forEach(team => {
                 let div = $('<div class="team_card" data-id="' + team.id + '"></div>');
                 div.append('<span>' + team.difficulty + ' </span>');
                 div.append('<span>' + team.name + ' </span>');
                 div.append('<span>' + team.users.length + '/' + team.capacity + ' </span>');
                 div.append('<span>' + team.description + ' </span>');
-
-
+                div.append('<a href="/teams/' + team.id + '">View</a>')
                 $('#teams').append(div);
 
             });

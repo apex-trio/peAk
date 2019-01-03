@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="c_head :: head"></head>
+
+    <body>
+
+        <header th:replace="c_header :: header"></header>
+
+        <header th:replace="c_vertnav :: v_nav"></header>
+
+
+        <form th:action="'/resorts/' + ${param.resortId}" method="post">
+            <label>Team Name: <input name="name"></label>
+            <label>Description: <input name="description"></label>
+            <label>Difficulty: <select name="difficulty">
+                <option value="1">Green Circle</option>
+                <option value="2">Blue Square</option>
+                <option value="3">Black Diamond</option>
+                <option value="4">Double Black Diamond</option>
+            </select> </label>
+            <label>Capacity: <input name="capacity" type="number" min="2"></label>
+            <label>Date Going: <input name="dateGoing" type="datetime-local"></label>
+            <!--<label>Time: <input type="time" name="timeGoing"></label>-->
+            <!--<label><input name="name"></label>-->
+            <input type="submit">
+        </form>
+    </body>
+
+</html>
