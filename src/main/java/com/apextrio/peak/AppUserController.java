@@ -44,7 +44,7 @@ public class AppUserController {
     }
 
     @GetMapping("/signup")
-    public String getSignup() {
+    public String getSignup(@RequestParam(required = false) Long teamId) {
         return "sign_up";
     }
 
@@ -57,8 +57,8 @@ public class AppUserController {
     ///////////////////////////////// -- POST routes
 
 
-    @RequestMapping(value = "/newAppUser", method = RequestMethod.POST)
-    public RedirectView addUsers(AppUser user) {
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public RedirectView addUsers(AppUser user, @RequestParam(required = false) Long teamId) {
 
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
@@ -67,7 +67,20 @@ public class AppUserController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         appUserRepo.save(user);
-        return new RedirectView("/");
+
+        System.out.println("this is our teamId" + teamId);
+        if(teamId == null) {
+            return new RedirectView("/");
+        } else {
+            return new RedirectView("/teams/" + teamId);
+        }
+
+
     }
 
+    @RequestMapping(value = "/signup/{teamId}", method = RequestMethod.GET)
+    public String signUpFromGroupPage(@PathVariable long teamId, Model m) {
+        m.addAttribute("teamId", teamId);
+        return "sign_up";
+    }
 }
