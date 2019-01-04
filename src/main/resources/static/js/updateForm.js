@@ -9,5 +9,4 @@ $(document).ready(() => {
         $(this).hide();
     });
 
-
 });
