@@ -194,7 +194,7 @@ form{
     #teams{
         display: flex;
         flex-wrap: wrap;
-        width: 100vw;
+        width: 96vw;
     }
 
     .team_card{
