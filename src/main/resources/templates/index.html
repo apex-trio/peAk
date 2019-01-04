@@ -45,6 +45,9 @@
 
 
         <!--<div id="map"></div>-->
+<section id="create_a_team" class="shades">
+    <a sec:authorize="isAuthenticated()" id="create" th:href="'/newteam?resortId=' + ${locations[0].id}"><p>Create a Team</p></a>
+</section>
 
     <div th:replace="c_teams :: teams"></div>
 

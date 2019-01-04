@@ -17,6 +17,9 @@ div, section {
     /* border: thin red solid; */
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
 
 #landing{
     z-index: 20;

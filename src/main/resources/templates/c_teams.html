@@ -3,7 +3,6 @@
 
 <div id="teams" th:fragment="teams">
 
-    <a sec:authorize="isAuthenticated()" id="create" th:href="'/newteam?resortId=' + ${locations[0].id}">Create a Team</a>
 
     <div class="team_card" th:attr="data-id=${team.id}" th:each="team : ${locations[2].teams}">
         <span th:text="${team.difficulty}"></span><br>
