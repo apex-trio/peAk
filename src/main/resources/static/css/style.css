@@ -1,5 +1,5 @@
 html{
-
+    font-family: 'Rubik', sans-serif !important;
 }
 
 *, *:before, *:after {
@@ -7,10 +7,11 @@ html{
 	-moz-box-sizing: border-box !important;
 	-ms-box-sizing: border-box !important;
 	box-sizing: border-box !important;
+
 }
 
 * {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Rubik', sans-serif !important;
 }
 
 div, section {
@@ -373,11 +374,14 @@ form{
     }
 
     .team_card{
-        width: 200px;
+        padding: 5px;
+        width: 19vw;
+        min-width: 200px;
         height: 150px;
         background:rgba(0, 0, 0, 0.7);
         display: inline-block;
     }
+
     #create_team{
         position: relative;
         top: 370px;
@@ -425,7 +429,7 @@ form{
 
     #vertical_locations{
         display:inline-block;
-        width: 150px;
+        width: 200px;
         height: 365px;
         float: left;
         font-family: 'Viga', sans-serif;
@@ -442,11 +446,9 @@ form{
 
     #mountain_detail{
         display:inline-block;
-        width: calc(100% - 15px - 150px);
+        width: calc(100% - 15px - 200px);
         height: 365px;
         float:left;
-
-
     }
 
     h1{

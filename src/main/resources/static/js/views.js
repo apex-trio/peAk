@@ -46,10 +46,10 @@ $(document).ready(() => {
 
             resort.teams.forEach(team => {
                 let div = $('<div class="team_card" data-id="' + team.id + '"></div>');
-                div.append('<span>' + team.difficulty + ' </span>');
-                div.append('<span>' + team.name + ' </span>');
-                div.append('<span>' + team.users.length + '/' + team.capacity + ' </span>');
-                div.append('<span>' + team.description + ' </span>');
+                div.append('<span>' + team.difficulty + ' </span><br>');
+                div.append('<span>' + team.name + ' </span><br>');
+                div.append('<span>' + team.users.length + '/' + team.capacity + ' </span><br>');
+                div.append('<span>' + team.description + ' </span><br>');
                 div.append('<a href="/teams/' + team.id + '">View</a>')
                 $('#teams').append(div);
 
