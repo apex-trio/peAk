@@ -31,7 +31,7 @@ public class Team {
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
     )
     //Same usage as reason in Resort.java
-    @JsonIgnore
+    @JsonManagedReference
     public Set<AppUser> users = new HashSet<>();
 
     public long getId() {
