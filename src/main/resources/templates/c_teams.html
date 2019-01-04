@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<div class="transparent_body" id="teams" th:fragment="teams">
+<div id="teams" th:fragment="teams">
 
     <a sec:authorize="isAuthenticated()" id="create" th:href="'/newteam?resortId=' + ${locations[0].id}">Create a Team</a>
 
