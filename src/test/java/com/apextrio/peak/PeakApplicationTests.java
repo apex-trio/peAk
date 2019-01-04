@@ -28,6 +28,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class PeakApplicationTests {
 
 	@Autowired
+	private AppUserRepository userRepo;
+
+	@Autowired
+	private TeamRepository teamRepo;
+
+	@Autowired
+	private ResortRepository resortRepo;
+
+	@Autowired
 	private WebApplicationContext context;
 
 	private MockMvc mvc;
@@ -214,5 +223,51 @@ public class PeakApplicationTests {
 		}
 	}
 
+	//------------
+	//CRUD TESTING
+	//------------
+
+	@Test
+	public void testCreateUser() {
+		AppUser testUser = new AppUser();
+		testUser = userRepo.save(testUser);
+		assertNotNull(testUser);
+		assertTrue(testUser.getId() != 0);
+	}
+
+	@Test
+	public void testCreateTeam() {
+		Team testTeam = new Team();
+		testTeam = teamRepo.save(testTeam);
+		assertNotNull(testTeam);
+		assertTrue(testTeam.getId() != 0);
+	}
+
+	@Test
+	public void testReadUser() {
+		AppUser user = userRepo.findByUsername("NJCrain");
+		assertNotNull(user);
+		assertEquals("test", user.getBio());
+		assertEquals("Nick", user.getFirstName());
+		assertEquals("Crain", user.getLastName());
+	}
+
+	@Test
+	public void testReadTeam() {
+		Team testTeam = teamRepo.findById( (long) 3).get();
+		assertEquals("Team 2-2", testTeam.getName());
+		assertEquals(3, testTeam.getDifficulty());
+		assertEquals("Descriptions are lame", testTeam.getDescription());
+		assertEquals(3, testTeam.getCapacity());
+	}
+
+	@Test
+	public void testReadResort() {
+		Resort r = resortRepo.findById((long) 1).get();
+		assertNotNull(r);
+		assertEquals("Crystal", r.getNick());
+		assertEquals(124, r.getWidgetId());
+		assertEquals(1, r.getId());
+	}
 }
 
