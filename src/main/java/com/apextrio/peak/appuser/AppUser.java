@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Set;
 
+//Class model structure for users.
 @Entity
 public class AppUser implements UserDetails {
     @Id

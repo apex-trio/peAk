@@ -35,22 +35,26 @@ public class AppUserController {
 
     ///////////////////////////////// -- simple GET routes
 
+    //Gets all resorts from the database and adds it to the view. These resorts include a list of all teams registered to them and within each team they contain a list of attending users
     @GetMapping("/")
     public String getHomePage(Model m) {
         m.addAttribute("locations", resortRepo.findAll());
         return "index";
     }
 
+    //Gives the login view
     @GetMapping("/login")
     public String getLogin() {
         return "login";
     }
 
+    //Gives the signup view. If coming from a team page, it holds that info as a request query (actually used within the post route)
     @GetMapping("/signup")
     public String getSignup(@RequestParam(required = false) Long teamId) {
         return "sign_up";
     }
 
+    //Grabs the current logged in users info, adds it to the my_profile view and returns the view
     @GetMapping("/myProfile")
     public String showMyProfile(Principal p, Model m) {
         AppUser currentUser = appUserRepo.findByUsername(p.getName());
@@ -61,7 +65,7 @@ public class AppUserController {
 
     ///////////////////////////////// -- POST routes
 
-
+    //Takes in a new users sign up information, adds them to the database and signs them in. If they came from a redirect off a team page, sends them back to that page
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public RedirectView addUsers(AppUser user, @RequestParam(required = false) Long teamId) {
 
@@ -81,6 +85,7 @@ public class AppUserController {
         }
     }
 
+    //Takes in the updated bio string from the user and makes that change in the database, returns the user to their profile which will show the updated info
     @PostMapping ("/updateProfile")
     public RedirectView updateProfileBio(@RequestParam String bioUpdate, Principal p) {
 
