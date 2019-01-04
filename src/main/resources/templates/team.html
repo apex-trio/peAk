@@ -29,7 +29,12 @@
 
             <!--Option to join the group, only available to logged in users-->
             <form sec:authorize="isAuthenticated()" th:if="(${team.users.size()} < ${team.capacity} and !${inGroup})" th:action="'/teams/' + ${team.id}" method="post">
-                <input type="submit">
+                <input type="submit" value="Join">
+            </form>
+
+            <form sec:authorize="isAuthenticated()" th:if="${inGroup}" th:action="'/teams/' + ${team.id}" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Leave">
             </form>
         </div>
 
