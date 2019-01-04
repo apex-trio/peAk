@@ -223,6 +223,16 @@ public class PeakApplicationTests {
 		}
 	}
 
+	@Test
+	@WithUserDetails("NJCrain")
+	public void testPostUpdateProfile() {
+		try {
+			this.mvc.perform(post("/updateProfile?bioUpdate=test")).andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/myProfile"));
+		} catch (java.lang.Exception e) {
+			System.err.println(e);
+		}
+	}
+
 	//------------
 	//CRUD TESTING
 	//------------
