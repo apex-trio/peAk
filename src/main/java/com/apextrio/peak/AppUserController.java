@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.security.Principal;
 import java.util.ArrayList;
 
 @Controller
@@ -49,7 +50,9 @@ public class AppUserController {
     }
 
     @GetMapping("/myProfile")
-    public String getMyProfile() {
+    public String showMyProfile(Principal p, Model m) {
+        AppUser currentUser = appUserRepo.findByUsername(p.getName());
+        m.addAttribute("user", currentUser);
         return "my_profile";
     }
 
@@ -74,13 +77,17 @@ public class AppUserController {
         } else {
             return new RedirectView("/teams/" + teamId);
         }
-
-
     }
 
-    @RequestMapping(value = "/signup/{teamId}", method = RequestMethod.GET)
-    public String signUpFromGroupPage(@PathVariable long teamId, Model m) {
-        m.addAttribute("teamId", teamId);
-        return "sign_up";
+    @PostMapping ("/updateProfile")
+    public RedirectView updateProfileBio(@RequestParam String bioUpdate, Principal p) {
+
+        AppUser currentUser = appUserRepo.findByUsername(p.getName());
+
+        currentUser.setBio(bioUpdate);
+
+        appUserRepo.save(currentUser);
+        return new RedirectView("/myProfile");
     }
+
 }

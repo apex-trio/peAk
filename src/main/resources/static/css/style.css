@@ -97,6 +97,10 @@ footer {
     display: none;
 }
 
+.updateForm {
+    display: none;
+}
+
 
 @media screen and (orientation:portrait) {
 
