@@ -3,12 +3,37 @@
 
 <head th:replace="c_head :: head"></head>
 
+
+
 <body>
 
     <header th:replace="c_header :: header"></header>
 
-    <main>
-        PROFILE
+    <main class="shades">
+        <h1 th:text="${'PROFILE: ' + user.username}"></h1>
+
+        <h2 th:text="${'NAME: ' + user.getFirstName() + ' ' + user.getLastName()}"></h2>
+        <h2 th:text="${'BIO: ' + user.getBio()}"></h2>
+
+        <h2>TEAMS:</h2>
+
+        <div class="team_card" th:attr="data-id=${team.id}" th:each="team : ${user.teams}">
+            <span th:text="${team.difficulty}"></span>
+            <span th:text="${team}"></span>
+            <span th:text="${team.users.size()} + '/' + ${team.capacity}"></span>
+
+            <span th:text="${team.description}"></span>
+            <a th:href="'/teams/' + ${team.id}">View</a>
+        </div>
+
+        <button class="updateButton">Update Profile Bio: </button>
+
+        <form action="/updateProfile" method="post" class="updateForm">
+            <label for="bio">Bio:</label>
+            <input type="text" name="bioUpdate" id="bio">
+            <input type="submit" name="Update">
+        </form>
+
     </main>
 
     <footer>
@@ -16,5 +41,8 @@
     </footer>
 
 </body>
+
+<script src="/js/updateForm.js" type='text/javascript'></script>
+
 
 </html>

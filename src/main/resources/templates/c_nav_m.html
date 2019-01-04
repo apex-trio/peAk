@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<nav id="nav_m" th:fragment="nav_m">
+    <div sec:authorize="isAnonymous()" class="shades"><a href="/login">Login</a></div>
+    <div sec:authorize="isAnonymous()" class="shades"><a href="/signup">Sign-Up</a></div>
+    <div sec:authorize="isAuthenticated()" class="shades" th:text="${#authentication.principal.username} + ' -'"></div>
+    <div sec:authorize="isAuthenticated()" class="shades"><a href="/myProfile">Profile</a></div>
+    <div sec:authorize="isAuthenticated()" class="shades"><a href="/perform_logout">Logout</a></div>
+</nav>
+
+</html>

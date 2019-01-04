@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+//Security configuration for spring. Utilizes BCrypt for password encoding. Also specifies what routes are accessible to who
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -42,6 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/sign-up").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/myProfile").authenticated()
+                .antMatchers("/newteam").authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")

@@ -1,10 +1,12 @@
-package com.apextrio.peak;
+package com.apextrio.peak.resort;
+
+import com.apextrio.peak.team.Team;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
 
-//TODO: Maybe push changes up to Heroku??
-
+//Class model structure for resorts.
 @Entity
 public class Resort {
     @Id
@@ -18,6 +20,8 @@ public class Resort {
     private String otsUrl;
     private String website;
     @OneToMany(mappedBy = "resort")
+    //This fixes a bug when getting resort info via AJAX. Solution found at https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
+    @JsonManagedReference
     public List<Team> teams;
 
     public long getId() {

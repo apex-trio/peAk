@@ -1,16 +1,14 @@
 package com.apextrio.peak;
 
-import com.apextrio.peak.AppUser;
-import com.apextrio.peak.AppUserRepository;
+import com.apextrio.peak.appuser.AppUser;
+import com.apextrio.peak.appuser.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-
+//Implementation of the UserDetailService for proper security/auth with spring
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired

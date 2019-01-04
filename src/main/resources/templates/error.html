@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="c_head :: head"></head>
+
+    <body>
+
+    <section id="head_space"></section>
+    <!--id="logo_frame"-->
+    <header th:replace="c_header :: header"></header>
+
+    <section id="mobile_nav_spacer"></section>
+
+    <nav id="mobile_nav">
+        <div id="mobile_nav_button_left">
+            <i id="nav_icon" class="fas fa-mountain"></i>
+        </div>
+    </nav>
+
+    <div class="shades">
+        <h2>Wipeout!</h2>
+        <h3 th:text="${status} + '-' + ${error} + ': ' + ${message}"></h3>
+    </div>
+
+    </body>
+
+</html>
