@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
+
 import java.security.Principal;
 import java.util.ArrayList;
 
@@ -76,8 +77,17 @@ public class AppUserController {
         } else {
             return new RedirectView("/teams/" + teamId);
         }
+    }
 
+    @PostMapping ("/updateProfile")
+    public RedirectView updateProfileBio(@RequestParam String bioUpdate, Principal p) {
 
+        AppUser currentUser = appUserRepo.findByUsername(p.getName());
+
+        currentUser.setBio(bioUpdate);
+
+        appUserRepo.save(currentUser);
+        return new RedirectView("/myProfile");
     }
 
 }
