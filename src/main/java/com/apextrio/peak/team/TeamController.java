@@ -67,11 +67,13 @@ public class TeamController {
         return new RedirectView("/teams/" + id);
     }
 
+    //returns the view for the page with a form to add a new team, needs a request param of the resortId the team is being added to so the form can post to the right location
     @GetMapping("/newteam")
     public String teamForm(@RequestParam long resortId) {
         return "teamForm";
     }
 
+    //Called when a user wants to leave a specific team. Will remove that user from the teams list of users, and will delete the team if all users have left it.
     @DeleteMapping("/teams/{id}")
     public RedirectView removeUser(@PathVariable long id, Principal p) {
         AppUser user = userRepo.findByUsername(p.getName());

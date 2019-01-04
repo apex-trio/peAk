@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+//Class model structure for teams.
 @Entity
 public class Team {
     @Id

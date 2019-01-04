@@ -6,8 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.List;
 
-//TODO: Maybe push changes up to Heroku??
-
+//Class model structure for resorts.
 @Entity
 public class Resort {
     @Id
