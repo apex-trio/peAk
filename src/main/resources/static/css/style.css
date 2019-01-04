@@ -41,6 +41,11 @@ a:active{
   color:#7F7979
 }
 
+.shades{
+    background:rgba(0, 0, 0, 1);
+    padding: 5px 3px;
+}
+
 #landing{
     z-index: 20;
     position: absolute;
@@ -150,6 +155,12 @@ footer {
     display: none;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 
 @media screen and (orientation:portrait) {
 
@@ -193,10 +204,6 @@ footer {
         margin-top: 5px;
     }
 
-    .shades{
-        background:rgba(0, 0, 0, 1);
-        padding: 5px 3px;
-    }
 
     #mobile_nav_spacer{
         height: 50px;
@@ -311,6 +318,10 @@ footer {
         height: 300px;
     }
 
+    form{
+         width: 50%;
+    }
+
 }
 
 @media screen and (orientation: landscape) {
@@ -348,6 +359,10 @@ footer {
         position: fixed;
         right: 0px;
         margin-right: 10px;
+    }
+
+    #nav_m{
+        display:none;
     }
 
     #teams{
@@ -479,6 +494,10 @@ footer {
         position: absolute;
         top: 370px;
         left: calc(150px + 5px);
+    }
+
+    form{
+        width: 25%;
     }
 
 }
