@@ -1,6 +1,8 @@
-import com.apextrio.peak.AppUser;
-import com.apextrio.peak.Resort;
-import com.apextrio.peak.Team;
+package com.apextrio.peak;
+
+import com.apextrio.peak.appuser.AppUser;
+import com.apextrio.peak.resort.Resort;
+import com.apextrio.peak.team.Team;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

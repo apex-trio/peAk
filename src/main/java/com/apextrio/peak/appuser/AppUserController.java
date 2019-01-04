@@ -1,5 +1,7 @@
-package com.apextrio.peak;
+package com.apextrio.peak.appuser;
 
+import com.apextrio.peak.resort.ResortRepository;
+import com.apextrio.peak.team.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
