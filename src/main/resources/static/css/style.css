@@ -333,7 +333,6 @@ footer {
         width: 200px;
         height: 150px;
         background:rgba(0, 0, 0, 0.5);
-        border-radius: 3px;
         display: inline-block;
     }
 
@@ -449,7 +448,5 @@ footer {
         top: 370px;
         left: calc(150px + 5px);
     }
-
-
 
 }
