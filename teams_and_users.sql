@@ -7,7 +7,7 @@ INSERT INTO team (name, difficulty, capacity, date_created, date_going, resort_i
 INSERT INTO team (name, difficulty, capacity, date_created, date_going, resort_id, description) VALUES ('Team 2-2', 3, 3, '1/1/70 12:53PM', '11/21/19 11:00AM', 2, 'Descriptions are lame');
 INSERT INTO team (name, difficulty, capacity, date_created, date_going, resort_id, description) VALUES ('Team 3-1', 4, 4, '1/13/15 1:53PM', '11/8/19 8:00AM', 3, 'yes');
 INSERT INTO team (name, difficulty, capacity, date_created, date_going, resort_id, description) VALUES ('Team 3-2', 1, 4, '12/31/18 12:53AM', '12/31/19 12:00AM', 3, '');
-INSERT INTO team (name, difficulty, capacity, date_created, date_going, resort_id, description) VALUES ('Team 3-3', 3, 5, '12/1/18 12:53PM', '1/15/19 9:00AM', 3, 'beer. blackjack. hookers');
+INSERT INTO team (name, difficulty, capacity, date_created, date_going, resort_id, description) VALUES ('Team 3-3', 3, 5, '12/1/18 12:53PM', '1/15/19 9:00AM', 3, 'bbh');
 
 INSERT INTO team_members (team_id, user_id) VALUES (1, 1);
 INSERT INTO team_members (team_id, user_id) VALUES (1, 2);

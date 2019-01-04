@@ -1,5 +1,11 @@
 package com.apextrio.peak;
 
+import com.apextrio.peak.appuser.AppUser;
+import com.apextrio.peak.appuser.AppUserRepository;
+import com.apextrio.peak.resort.Resort;
+import com.apextrio.peak.resort.ResortRepository;
+import com.apextrio.peak.team.Team;
+import com.apextrio.peak.team.TeamRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,17 +17,18 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.junit.Assert.*;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+//------------------------------------------------------------------------------------------------------------------------------
+//TO PROPERLY RUN THESE TESTS, ENABLE AUTO CREATE IN application.properties AND THEN RUN THE PROVIDED SQL FILES ON YOUR DATABASE
+//------------------------------------------------------------------------------------------------------------------------------
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration
@@ -93,6 +100,15 @@ public class PeakApplicationTests {
 		try {
 			MvcResult response = this.mvc.perform(get("/teams/3")).andExpect(status().isOk()).andExpect(view().name("team")).andExpect(model().attribute("inGroup", null)).andReturn();
 			assertFalse(response.getResponse().getContentAsString().contains("<div id=\"users\">"));
+		} catch (java.lang.Exception e) {
+			System.err.println(e);
+		}
+	}
+
+	@Test
+	public void testTeamsIdInvalidId() {
+		try {
+			this.mvc.perform(get("/teams/10000")).andExpect(status().isNotFound()).andExpect(view().name("error"));
 		} catch (java.lang.Exception e) {
 			System.err.println(e);
 		}
@@ -200,6 +216,26 @@ public class PeakApplicationTests {
 	public void testPostTeamsIdNoAuth() {
 		try {
 			this.mvc.perform(post("/teams/3")).andExpect(status().isForbidden()).andExpect(redirectedUrl("/error"));
+		} catch (java.lang.Exception e) {
+			System.err.println(e);
+		}
+	}
+
+	@Test
+	@WithUserDetails("NJCrain")
+	public void	testDeleteTeamId() {
+		try {
+			this.mvc.perform(delete("/teams/2")).andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/teams/2"));
+		} catch (java.lang.Exception e) {
+			System.err.println(e);
+		}
+	}
+
+	@Test
+	@WithUserDetails("jasonb315")
+	public void	testDeleteTeamIdLastUser() {
+		try {
+			this.mvc.perform(delete("/teams/2")).andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/"));
 		} catch (java.lang.Exception e) {
 			System.err.println(e);
 		}

@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<div class="transparent_body" id="teams" th:fragment="teams">
+<div id="teams" th:fragment="teams">
 
-    <a sec:authorize="isAuthenticated()" id="create" th:href="'/newteam?resortId=' + ${locations[0].id}">Create a Team</a>
 
-    <div class="team_card" th:attr="data-id=${team.id}" th:each="team : ${locations[2].teams}">
-        <span th:text="${team.difficulty}"></span>
-        <span th:text="${team}"></span>
-        <span th:text="${team.users.size()} + '/' + ${team.capacity}"></span>
+    <div class="team_card" th:attr="data-id=${team.id}" th:each="team : ${locations[0].teams}">
+        <span th:text="${team.difficulty}"></span><br>
+        <span th:text="${team}"></span><br>
+        <span th:text="${team.users.size()} + '/' + ${team.capacity}"></span><br>
 
-        <span th:text="${team.description}"></span>
+        <span th:text="${team.description}"></span><br>
         <a th:href="'/teams/' + ${team.id}">View</a>
 
         <!--<span>beer. blackjack. hookers</span>-->

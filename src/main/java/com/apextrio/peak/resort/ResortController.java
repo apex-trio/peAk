@@ -1,13 +1,16 @@
-package com.apextrio.peak;
+package com.apextrio.peak.resort;
 
 
+import com.apextrio.peak.team.Team;
+import com.apextrio.peak.team.TeamRepository;
+import com.apextrio.peak.appuser.AppUser;
+import com.apextrio.peak.appuser.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 @RestController
 public class ResortController {
 
+    //---Repo variables for access to the database---
     @Autowired
     private TeamRepository teamRepo;
 
@@ -25,12 +29,17 @@ public class ResortController {
     @Autowired
     private AppUserRepository userRepo;
 
+    //---Route Mapping methods---
+
+    //Utilized by the ajax call on the front end, retrieves information for a specific resort and returns it in JSON format
     @GetMapping("/resorts/{id}")
     public Resort getResort(@PathVariable long id){
         return resortRepo.findById(id).get();
     }
 
-    //Route should be based on  a resorts id so the group can be assigned to the proper resort. Will take in name, capacity, and difficulty.
+    //Route used for adding a team to a specific resort and adding it to the database
+    //It creates a team, grabs the user who made the request and adds them to the users on the team, then saves the team to the database
+    //Afterwords, it will redirect the user to the detail page for that new team
     @PostMapping("/resorts/{id}")
     public RedirectView createTeam(Team t, @PathVariable long id, @RequestParam String dateGoing, Principal p) {
         if (p==null) {

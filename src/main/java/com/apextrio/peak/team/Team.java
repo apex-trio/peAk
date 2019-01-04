@@ -1,14 +1,15 @@
-package com.apextrio.peak;
+package com.apextrio.peak.team;
 
+import com.apextrio.peak.appuser.AppUser;
+import com.apextrio.peak.resort.Resort;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+//Class model structure for teams.
 @Entity
 public class Team {
     @Id
@@ -31,7 +32,7 @@ public class Team {
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
     )
     //Same usage as reason in Resort.java
-    @JsonIgnore
+    @JsonManagedReference
     public Set<AppUser> users = new HashSet<>();
 
     public long getId() {
