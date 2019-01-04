@@ -27,6 +27,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+//------------------------------------------------------------------------------------------------------------------------------
+//TO PROPERLY RUN THESE TESTS, ENABLE AUTO CREATE IN application.properties AND THEN RUN THE PROVIDED SQL FILES ON YOUR DATABASE
+//------------------------------------------------------------------------------------------------------------------------------
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration
