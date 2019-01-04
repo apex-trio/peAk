@@ -33,8 +33,8 @@ header {
     position: fixed;
     top: 0;
     z-index: 10;
-    display: flex;
     justify-content: flex-start;
+    display: flex;
     align-items: center;
     background-color: #1a4871;
     color: white;
@@ -118,6 +118,9 @@ footer {
         background:rgba(0, 0, 0, .5);
     }
 
+    header > nav > div > a {
+         display: none;
+    }
 
     .shades{
         background:rgba(0, 0, 0, 1);
@@ -127,6 +130,13 @@ footer {
     #mobile_nav_spacer{
         height: 50px;
         display:inline-block;
+    }
+
+    #logo_view{
+        float:left;
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
     }
 
     #mobile_nav{
@@ -255,8 +265,26 @@ footer {
         height: 5vh;
         }
 
+    div > nav > div > a{
+        display: none;
+    }
+
     header {
         height: 5vh;
+    }
+
+    #logo_view{
+        float:left;
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    body > header > nav{
+        display: inline-block;
+        position: fixed;
+        right: 0px;
+        margin-right: 10px;
     }
 
     .shades{
@@ -272,21 +300,21 @@ footer {
         display: none;
     }
 
-#mobile_nav_buttons_right{
+    #mobile_nav_buttons_right{
 
-            position: absolute;
+        position: absolute;
 
-            top: 0px;
-            right: 10px;
+        top: 0px;
+        right: 10px;
 
-            display: flex;
-            justify-content: flex-end;
-            align-content: center;
-            align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+        align-items: center;
 
-            width: calc(100vw - 70px);
-            height: 5vh;
-            margin: 0px 0px 0px 0px;
+        width: calc(100vw - 70px);
+        height: 5vh;
+        margin: 0px 0px 0px 0px;
 
 
     }
