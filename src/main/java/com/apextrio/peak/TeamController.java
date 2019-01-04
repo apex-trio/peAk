@@ -75,7 +75,13 @@ public class TeamController {
         AppUser user = userRepo.findByUsername(p.getName());
         Team t = teamRepo.findById(id).get();
         t.users.remove(user);
-        teamRepo.save(t);
-        return new RedirectView("/teams/" + id);
+        if (t.users.size() == 0) {
+            teamRepo.delete(t);
+            return new RedirectView("/");
+        } else {
+            teamRepo.save(t);
+            return new RedirectView("/teams/" + id);
+        }
+
     }
 }
