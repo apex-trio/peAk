@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.security.Principal;
 import java.util.ArrayList;
 
@@ -79,12 +78,6 @@ public class AppUserController {
         }
 
 
-    }
-
-    @RequestMapping(value = "/signup/{teamId}", method = RequestMethod.GET)
-    public String signUpFromGroupPage(@PathVariable long teamId, Model m) {
-        m.addAttribute("teamId", teamId);
-        return "sign_up";
     }
 
 }
