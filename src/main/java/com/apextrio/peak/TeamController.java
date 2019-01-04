@@ -1,6 +1,7 @@
 package com.apextrio.peak;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,6 +43,11 @@ public class TeamController {
     //Takes in the team id from the path and the principal of the request. Adds that user as a member of that team
     @PostMapping("/teams/{id}")
     public RedirectView addUser(@PathVariable long id, Principal p) {
+        if (p==null) {
+            RedirectView rv = new RedirectView("/error");
+            rv.setStatusCode(HttpStatus.FORBIDDEN);
+            return rv;
+        }
         Team t = teamRepo.findById(id).get();
         AppUser joining = (AppUser) (((UsernamePasswordAuthenticationToken) p).getPrincipal());
         t.users.add(userRepo.findById(joining.getId()).get());
