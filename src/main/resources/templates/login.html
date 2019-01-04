@@ -9,7 +9,7 @@
 
     <header th:replace="c_header :: header"></header>
 
-    <main>
+    <main class="shades">
         <form action="/perform_login" method="post">
             <label for="username">Username</label>
             <input type="text" name="username" id="username">
@@ -17,7 +17,7 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password">
 
-            <input type="submit" name="Login">
+            <input value="Login" type="submit" name="Login">
         </form>
     </main>
 
