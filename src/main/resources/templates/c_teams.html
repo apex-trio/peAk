@@ -3,9 +3,8 @@
 
 <div id="teams" th:fragment="teams">
 
-    <a sec:authorize="isAuthenticated()" id="create" th:href="'/newteam?resortId=' + ${locations[0].id}">Create a Team</a>
 
-    <div class="team_card" th:attr="data-id=${team.id}" th:each="team : ${locations[2].teams}">
+    <div class="team_card" th:attr="data-id=${team.id}" th:each="team : ${locations[0].teams}">
         <span th:text="${team.difficulty}"></span><br>
         <span th:text="${team}"></span><br>
         <span th:text="${team.users.size()} + '/' + ${team.capacity}"></span><br>

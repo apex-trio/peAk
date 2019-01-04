@@ -40,11 +40,9 @@ $(document).ready(() => {
 
             $('.ots-widget > iframe').attr('src', 'https://www.onthesnow.com/widget/snow?resort=' + resort.widgetId + '&color=b');
             $('.ots-widget > p > a').attr('href', resort.otsUrl);
-            if ($('#create').length) {
-                $('#teams').empty().append('<a href="/newteam?resortId=' + resort.id + '">Create a Team</a>');
-            } else {
+
                 $('#teams').empty();
-            }
+
 
             resort.teams.forEach(team => {
                 let div = $('<div class="team_card" data-id="' + team.id + '"></div>');

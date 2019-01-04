@@ -17,6 +17,34 @@ div, section {
     /* border: thin red solid; */
 }
 
+a:link{
+  font-family: 'Viga', sans-serif;
+  text-decoration: none;
+  color:#FFFFFF;
+}
+
+a:visited{
+  font-family: 'Viga', sans-serif;
+  text-decoration: none;
+  color:#FFFFFF;
+}
+
+a:hover{
+  font-family: 'Viga', sans-serif;
+  text-decoration: none;
+  color:#7F7979;
+}
+
+a:active{
+  font-family: 'Viga', sans-serif;
+  text-decoration: none;
+  color:#7F7979
+}
+
+.shades{
+    background:rgba(0, 0, 0, 1);
+    padding: 5px 3px;
+}
 
 #landing{
     z-index: 20;
@@ -127,6 +155,12 @@ footer {
     display: none;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 
 @media screen and (orientation:portrait) {
 
@@ -152,6 +186,10 @@ footer {
          display: none;
     }
 
+    .top_name{
+            display:none;
+    }
+
     #teams{
         display: flex;
         flex-wrap: wrap;
@@ -166,10 +204,6 @@ footer {
         margin-top: 5px;
     }
 
-    .shades{
-        background:rgba(0, 0, 0, 1);
-        padding: 5px 3px;
-    }
 
     #mobile_nav_spacer{
         height: 50px;
@@ -284,6 +318,10 @@ footer {
         height: 300px;
     }
 
+    form{
+         width: 50%;
+    }
+
 }
 
 @media screen and (orientation: landscape) {
@@ -323,6 +361,10 @@ footer {
         margin-right: 10px;
     }
 
+    #nav_m{
+        display:none;
+    }
+
     #teams{
         display:flex;
         flex-wrap: wrap;
@@ -335,6 +377,10 @@ footer {
         height: 150px;
         background:rgba(0, 0, 0, 0.7);
         display: inline-block;
+    }
+    #create_team{
+        position: relative;
+        top: 370px;
     }
 
     .shades{
@@ -448,6 +494,10 @@ footer {
         position: absolute;
         top: 370px;
         left: calc(150px + 5px);
+    }
+
+    form{
+        width: 25%;
     }
 
 }
