@@ -17,6 +17,31 @@ div, section {
     /* border: thin red solid; */
 }
 
+
+#landing{
+    z-index: 20;
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    left: 0px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    height: 50px;
+    align-content: center;
+    align-items: center;
+    background-color: red;
+}
+
+#landing_logo{
+    max-width: 30px;
+    height: auto;
+}
+
+landing_span{
+
+}
+
 body {
     background: url("/img/sti-H-20.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -126,6 +151,21 @@ footer {
          display: none;
     }
 
+    #teams{
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .team_card{
+        width: 100%;
+        height: 150px;
+        background:rgba(0, 0, 0, 0.5);
+        border-radius: 3px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+
     .shades{
         background:rgba(0, 0, 0, 1);
         padding: 5px 3px;
@@ -213,15 +253,7 @@ footer {
         background:rgba(0, 0, 0, 1);
     }
 
-    .team_card{
-        background:rgba(0, 0, 0, 0.5);
-        padding: 5px 5px;
-        border-radius: 5px;
-        margin: 5px 3px 0px;
-    }
-
-
-    h1{
+        h1{
         font-size: 2vh;
     }
 
@@ -289,6 +321,20 @@ footer {
         position: fixed;
         right: 0px;
         margin-right: 10px;
+    }
+
+    #teams{
+        display:flex;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .team_card{
+        width: 200px;
+        height: 150px;
+        background:rgba(0, 0, 0, 0.5);
+        border-radius: 3px;
+        display: inline-block;
     }
 
     .shades{
@@ -403,5 +449,7 @@ footer {
         top: 370px;
         left: calc(150px + 5px);
     }
+
+
 
 }
