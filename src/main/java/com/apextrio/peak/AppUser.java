@@ -22,6 +22,7 @@ public class AppUser implements UserDetails {
     private String lastName;
     @ManyToMany(mappedBy = "users")
     //Same usage as reason in Resort.java
+    @JsonBackReference
     public Set<Team> teams;
 
     public AppUser(String username, String password, String bio, String firstName, String lastName) {

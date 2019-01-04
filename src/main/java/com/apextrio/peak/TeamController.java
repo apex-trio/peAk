@@ -5,13 +5,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 public class TeamController {
@@ -24,19 +24,29 @@ public class TeamController {
 
     //Gets the team from the database based on the id in the path. Returns that to be parsed/rendered.
     @GetMapping("/teams/{id}")
-    public String showTeam(@PathVariable long id, Model m, Principal p) {
-        Team t = teamRepo.findById(id).get();
-        if (p != null) {
-            AppUser user = (AppUser) (((UsernamePasswordAuthenticationToken) p).getPrincipal());
-            user = userRepo.findById(user.getId()).get();
-            if (t.users.contains(user)) {
-                m.addAttribute("inGroup", true);
-            } else {
-                m.addAttribute("inGroup", false);
+    public String showTeam(@PathVariable long id, Model m, Principal p, HttpServletResponse response) {
+        Optional<Team> t = teamRepo.findById(id);
+        if(t.isPresent()) {
+            Team team = t.get();
+            if (p != null) {
+                AppUser user = (AppUser) (((UsernamePasswordAuthenticationToken) p).getPrincipal());
+                user = userRepo.findById(user.getId()).get();
+                if (team.users.contains(user)) {
+                    m.addAttribute("inGroup", true);
+                } else {
+                    m.addAttribute("inGroup", false);
+                }
             }
+            m.addAttribute("team", team);
+            return "team";
+        } else {
+            try {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND, "No team found");
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+            return "error";
         }
-        m.addAttribute("team", t);
-        return "team";
     }
 
 
@@ -58,5 +68,20 @@ public class TeamController {
     @GetMapping("/newteam")
     public String teamForm(@RequestParam long resortId) {
         return "teamForm";
+    }
+
+    @DeleteMapping("/teams/{id}")
+    public RedirectView removeUser(@PathVariable long id, Principal p) {
+        AppUser user = userRepo.findByUsername(p.getName());
+        Team t = teamRepo.findById(id).get();
+        t.users.remove(user);
+        if (t.users.size() == 0) {
+            teamRepo.delete(t);
+            return new RedirectView("/");
+        } else {
+            teamRepo.save(t);
+            return new RedirectView("/teams/" + id);
+        }
+
     }
 }
