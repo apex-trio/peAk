@@ -1,13 +1,16 @@
-package com.apextrio.peak;
+package com.apextrio.peak.resort;
 
 
+import com.apextrio.peak.team.Team;
+import com.apextrio.peak.team.TeamRepository;
+import com.apextrio.peak.appuser.AppUser;
+import com.apextrio.peak.appuser.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

@@ -1,5 +1,11 @@
 package com.apextrio.peak;
 
+import com.apextrio.peak.appuser.AppUser;
+import com.apextrio.peak.appuser.AppUserRepository;
+import com.apextrio.peak.resort.Resort;
+import com.apextrio.peak.resort.ResortRepository;
+import com.apextrio.peak.team.Team;
+import com.apextrio.peak.team.TeamRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +17,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 

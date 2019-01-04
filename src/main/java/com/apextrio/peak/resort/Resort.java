@@ -1,6 +1,6 @@
-package com.apextrio.peak;
+package com.apextrio.peak.resort;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.apextrio.peak.team.Team;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;

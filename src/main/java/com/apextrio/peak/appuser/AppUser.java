@@ -1,5 +1,6 @@
-package com.apextrio.peak;
+package com.apextrio.peak.appuser;
 
+import com.apextrio.peak.team.Team;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
