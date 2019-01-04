@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -17,6 +18,7 @@ import org.springframework.web.context.WebApplicationContext;
 import static org.junit.Assert.*;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -57,11 +59,21 @@ public class PeakApplicationTests {
 	}
 
 	@Test
-	@WithUserDetails("NJCrain1")
+	@WithUserDetails("NJCrain")
 	public void testTeamsId() {
 		try {
-			MvcResult response = this.mvc.perform(get("/teams/3")).andExpect(status().isOk()).andExpect(view().name("team")).andExpect(model().attribute("inGroup", false)).andReturn();
+			MvcResult response = this.mvc.perform(get("/teams/6")).andExpect(status().isOk()).andExpect(view().name("team")).andExpect(model().attribute("inGroup", false)).andReturn();
 			assertTrue(response.getResponse().getContentAsString().contains("<div id=\"users\">"));
+		} catch (java.lang.Exception e) {
+			System.err.println(e);
+		}
+	}
+
+	@Test
+	@WithUserDetails("NJCrain")
+	public void testTeamsIdInGroup() {
+		try {
+			this.mvc.perform(get("/teams/1")).andExpect(status().isOk()).andExpect(view().name("team")).andExpect(model().attribute("inGroup", true));
 		} catch (java.lang.Exception e) {
 			System.err.println(e);
 		}
@@ -96,7 +108,7 @@ public class PeakApplicationTests {
 	}
 
 	@Test
-	@WithUserDetails("NJCrain1")
+	@WithUserDetails("NJCrain")
 	public void testNewTeam() {
 		try {
 			this.mvc.perform(get("/newteam?resortId=2")).andExpect(status().isOk()).andExpect(view().name("teamForm"));
@@ -114,8 +126,93 @@ public class PeakApplicationTests {
 		}
 	}
 
+	@Test
+	@WithUserDetails("NJCrain")
+	public void testMyProfile() {
+		try {
+			this.mvc.perform(get("/myProfile")).andExpect(status().isOk()).andExpect(view().name("my_profile"));
+		} catch (java.lang.Exception e) {
+			System.err.println(e);
+		}
+	}
+
+	@Test
+	public void testMyProfileNoAuth() {
+		try {
+			this.mvc.perform(get("/myProfile")).andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("http://localhost/login"));
+		} catch (java.lang.Exception e) {
+			System.err.println(e);
+		}
+	}
+
 	//---------------------------------
 	//TESTING FOR APPLICATION ENDPOINTS
 	//---------------------------------
+
+	@Test
+	@WithUserDetails("NJCrain")
+	public void testPostResortsId() {
+		try {
+			this.mvc.perform(post("/resorts/2?name=A Name&description=test&difficulty=3&capacity=5&dateGoing=2019-02-10T08:00")).andExpect(status().is3xxRedirection()).andExpect(redirectedUrlPattern("/teams/*"));
+		} catch (java.lang.Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	@Test
+	public void testPostResortsIdNoAuth() {
+		try {
+			this.mvc.perform(post("/resorts/2?name=A Name&description=test&difficulty=3&capacity=5&dateGoing=2019-02-10T08:00")).andExpect(status().isForbidden());
+		} catch (java.lang.Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	@Test
+	public void testGetResortId() {
+		try {
+			this.mvc.perform(get("/resorts/4")).andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)).andExpect(status().isOk()).andDo(print());
+		} catch (java.lang.Exception e) {
+			System.err.println(e);
+		}
+	}
+
+	@Test
+	@WithUserDetails("NJCrain")
+	public void testPostTeamsId() {
+		try {
+			this.mvc.perform(post("/teams/3")).andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/teams/3"));
+		} catch (java.lang.Exception e) {
+			System.err.println(e);
+		}
+	}
+
+	@Test
+	public void testPostTeamsIdNoAuth() {
+		try {
+			this.mvc.perform(post("/teams/3")).andExpect(status().isForbidden()).andExpect(redirectedUrl("/error"));
+		} catch (java.lang.Exception e) {
+			System.err.println(e);
+		}
+	}
+
+	@Test
+	public void testPostSignup() {
+		try {
+			this.mvc.perform(post("/signup?username=test&password=123456&firstName=test&lastName=test&bio=test")).andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/"));
+		} catch (java.lang.Exception e ) {
+			System.err.println(e);
+		}
+	}
+
+	@Test
+	public void testPostSignupWithTeamId() {
+		try {
+			this.mvc.perform(post("/signup?teamId=1&username=test&password=123456&firstName=test&lastName=test&bio=test")).andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/teams/1"));
+		} catch (java.lang.Exception e ) {
+			System.err.println(e);
+		}
+	}
+
 }
 
