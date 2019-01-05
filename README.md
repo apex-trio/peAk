@@ -1,6 +1,6 @@
 <a id="top"></a>
 
-# Ride-Together/Powder-Radar
+# peAk
 
 ```
 Code Fellows; seattle-ja-401d2
@@ -15,6 +15,32 @@ The app that we plan to develop is called “Ride Together”. This app will mak
 
 Please comment / edit regarding stretch goal ideas, other APIs to use, and ideas for views / the user’s flow through the application. This is a rough, rough draft. 
 
+### Using peAK:
+To use our application, navigate to <a href="https://apex-trio-peak.herokuapp.com/">https://apex-trio-peak.herokuapp.com/</a>. Once at the home page, you can view all mountain conditions at the resorts stored in our database. Click on a resort from the list to view a map of the region surrounding our resort. Our On The Snow widget shows the snow level at the base of the mountain and at the top during the day in which you visit the site. Temperatures are also recorded, and the number of lifts open is also displayed. (To see a full snowfall report and forecast, click the hyperlink on our widget; this will take you to the On The Snow website for that specific resort.) <br/>
+
+Non-registered users can view all teams who plan to visit a mountain. To create a new team and to join a team and connect with other skiers and snowboarders at a specific resort, you need to sign up if you’re a first time user, or log in if you already have a user account. Once you have either created or joined a team at a specific resort, you can view all of your teams and upcoming trips at your profile page.  
+
+### Images:
+
+##### Home Page:  
+
+![index page without teams](./src/main/resources/static/img/peAk_Index_noTeams.png)
+
+##### Home Page -- Teams Est.:
+
+![index page with teams](./src/main/resources/static/img/peAk_index_teamsIncluded.png)
+
+##### Team Detail View:
+
+![team detail view](./src/main/resources/static/img/peAk_detailView.png)
+
+##### Team Creation View:  
+
+![team creation view](./src/main/resources/static/img/peAk_teamForm.png)
+
+##### My Profile -- Teams Recorded: 
+
+![my profile page with teams](./src/main/resources/static/img/peAk_profile_withTeams.png)
 
 ### User Stories:
 
@@ -49,11 +75,35 @@ Please comment / edit regarding stretch goal ideas, other APIs to use, and ideas
 
 - As a developer, I want to make an API call to Cordova to ascertain my phones GeoCode location to provide Google Maps and NOAA with correct location data. <br/>
 
-#### Stretch Goal:
+#### Stretch Goals:
 - As a user, I want to be able to add friends to the app so that I can connect with people whom I’ve met at various meetups. <br/>
 
 - As a dev, I want to give the group creators admin privileges. This will enable them to remove anyone from the group who is abusing the site. <br/>
 
 - As a dev, I want to drop a pin on the Google Maps iFrame to provide a visual representation of which groups are snowboarding on specific passes. 
+
+
+### Workflow: 
+
+Each of our teammates checked out a new feature branch when building out a new component of our web app. Once we were done with a feature, we pushed our work to a remote development branch for staging. Before merging, we performed a code review with at least one other team member before merging to our development branch. After our development branch was updated according to a specific milestone, we then merged the development branch to master. 
+
+During development, we deployed our website on heroku from our development branch. Upon completion of the first iteration of our project, we then merged everything to master. We then switched the deploy branch from development to master on heroku as well. 
+
+### Testing:
+To test this app, follow these instructions:
+1. Ensure the auto-create line in application.properties is uncommented, and run the app itself at least once to create the proper database table structure and remove reset all local data.
+2. Run the provided resorts.sql and teams_and_users.sql files to create the dummy data needed for testing
+3. Run the tests through your prefered IDE, or with `./gradlew test` in your console.
+
+### Database Schema:
+![database schema figure](./src/main/resources/static/img/databaseSchema.png)
+
+### Attributions:
+* Various Spring Docs - https://docs.spring.io
+* Tutorials from Baeldung - https://www.baeldung.com/
+* Answer from the user Kurt Bourbaki to handle issues with sending serialized data as JSON - https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
+* Answers for various usages of security with spring and thymeleaf - https://stackoverflow.com/questions/35090329/how-to-display-current-logged-in-users-information-in-all-templates-including-v and https://stackoverflow.com/questions/28904176/thymeleaf-with-spring-security-how-to-check-if-user-is-logged-in-or-not
+* Tutorials from Google Maps API Developer Docs - https://developers.google.com/maps/documentation/javascript/tutorial
+* Background image from unsplash.com
 
 <!-- [:top: Contents](#contents) -->
