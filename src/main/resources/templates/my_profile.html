@@ -23,6 +23,7 @@
             <span th:text="${team.users.size()} + '/' + ${team.capacity}"></span>
 
             <span th:text="${team.description}"></span>
+            <span th:text="${team.dateGoing}"></span>
             <a th:href="'/teams/' + ${team.id}">View</a>
         </div>
 
