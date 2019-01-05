@@ -1,6 +1,6 @@
 <a id="top"></a>
 
-# Ride-Together/Powder-Radar
+# peAk
 
 ```
 Code Fellows; seattle-ja-401d2
@@ -55,5 +55,8 @@ Please comment / edit regarding stretch goal ideas, other APIs to use, and ideas
 - As a dev, I want to give the group creators admin privileges. This will enable them to remove anyone from the group who is abusing the site. <br/>
 
 - As a dev, I want to drop a pin on the Google Maps iFrame to provide a visual representation of which groups are snowboarding on specific passes. 
+
+
+
 
 <!-- [:top: Contents](#contents) -->
