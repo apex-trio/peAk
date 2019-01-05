@@ -7,9 +7,6 @@
 
         <header th:replace="c_header :: header"></header>
 
-        <!--<header th:replace="c_nav :: v_nav"></header>-->
-
-
         <form class="shades" th:action="'/resorts/' + ${param.resortId}" method="post">
             <label>Team Name: <input name="name"></label><br>
             <label>Description: <input name="description"></label><br>
@@ -25,6 +22,7 @@
             <!--<label><input name="name"></label>-->
             <input type="submit">
         </form>
+    
     </body>
 
 </html>
