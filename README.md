@@ -26,25 +26,21 @@ Non-registered users can view all teams who plan to visit a mountain. To create 
 
 ![index page without teams](./src/main/resources/static/img/peAk_Index_noTeams.png)
 
-##### Home Page -- Teams Established: 
+##### Home Page -- Teams Est.:
 
-![index page with teams](./src/main/resources/static/img/peAk_Index_withTeams.png)
-
-##### Home Page -- New Resort:
-
-![index page viewing Mammoth](./src/main/resources/static/img/peAk_index_MammothResort.png)
+![index page with teams](./src/main/resources/static/img/peAk_index_teamsIncluded.png)
 
 ##### Team Detail View:
 
 ![team detail view](./src/main/resources/static/img/peAk_detailView.png)
 
-##### My Profile View -- Teams Recorded:
-
-![my profile view](./src/main/resources/static/img/peAk_profile_teamsIncluded.png)
-
 ##### Team Creation View:  
 
 ![team creation view](./src/main/resources/static/img/peAk_teamForm.png)
+
+##### My Profile -- Teams Recorded: 
+
+![my profile page with teams](./src/main/resources/static/img/peAk_profile_withTeams.png)
 
 ### User Stories:
 
