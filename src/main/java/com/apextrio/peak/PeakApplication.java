@@ -9,5 +9,4 @@ public class PeakApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PeakApplication.class, args);
 	}
-
 }

@@ -5,13 +5,9 @@
 
     <h1>RESORTS</h1>
 
-
-        <div class="resort_button_div" th:attr="data-id=${location.id}" th:each="location : ${locations}">
-            <span th:attr="dId=${location.id}" class="resort_button_div_text" th:text="${location.nick}"></span>
-        </div>
-
-
-
+    <div class="resort_button_div" th:attr="data-id=${location.id}" th:each="location : ${locations}">
+        <span th:attr="dId=${location.id}" class="resort_button_div_text" th:text="${location.nick}"></span>
+    </div>
 
 </div>
 
