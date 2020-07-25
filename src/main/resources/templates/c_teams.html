@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div id="teams" th:fragment="teams">
+
+
+    <div class="team_card" th:attr="data-id=${team.id}" th:each="team : ${locations[0].teams}">
+        <span th:text="${team.difficulty}"></span><br>
+        <span th:text="${team}"></span><br>
+        <span th:text="${team.users.size()} + '/' + ${team.capacity}"></span><br>
+
+        <span th:text="${team.description}"></span><br>
+        <a th:href="'/teams/' + ${team.id}">View</a>
+
+        <!--<span>beer. blackjack. hookers</span>-->
+
+        <!--diff-img | group name | how full-->
+        <!--short description 140 characters-->
+
+    </div>
+
+</div>
+
+</html>
